@@ -1,0 +1,12 @@
+{
+    "include": [
+        "./src/**/*",
+        "index.ts",
+    ],
+    "compilerOptions": {
+        "declaration": true,
+        "baseUrl": "./", // this must be specified if "paths" is specified.
+        "outDir": "./dist"
+    },
+    "extends": "@tsconfig/recommended/tsconfig.json"
+}
