@@ -32,6 +32,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'junit',
   reporter: [
+    ['html'],
     ['./index.ts', { outputFile: "./reporter/output.trx" }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

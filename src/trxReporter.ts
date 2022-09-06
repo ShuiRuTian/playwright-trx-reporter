@@ -88,7 +88,6 @@ export class TrxReporter implements Reporter {
 
     const runUser = process.env[runUserEnv] || `${this.computerName}\\${this.userName}`;
 
-    // TODO: should we use this or just result.duration?
     const testRunBuilder = new TestRunBuilder({
       id: createUuid(),
       name: `${runUser} ${this.startTimeDate.toISOString()}`,

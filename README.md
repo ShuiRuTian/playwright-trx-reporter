@@ -88,46 +88,16 @@ https://github.com/charto/cxsd
 https://github.com/spreeuwers/xsd2ts
 
 ## Limitation
-TRX is pretty complex. The xsd file has 2000+ lines, in comparsion, the [xsd file of JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) only has 200 lines including many comments. And there is almost no comments in the xsd file. So it's kind of hard to know the intension clearly for some situations.
 
-Also, there is no open spec for it, this "vstst.xsd" is from VS2022, it might change in the future.
+### Seems like forever
+1. TRX is pretty complex. The xsd file has 2000+ lines, in comparsion, the [xsd file of JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) only has 200 lines including many comments. And there is almost no comments in the xsd file. So it's kind of hard to know the intension clearly for some situations.
 
-Some property is not filled by default, like platform, and could not be set by now. If you think they are useful, please let me know!
+2. Also, there is no open spec for it, this "vstst.xsd" is from VS2022, it might change in the future.
 
-Feature Not supported(as far as I know, for TRX itself):
-1. Test Link(TestLinksType)
-2. netested test entry
-3. TestListType(Although we do have it, but I do not know in which case there should be a new one.)
-4. Azure DevOps supports to add Attachment, but we have 9 different ways to do that! I have no idea what the difference really is for some of them. And even they are same, I might only use some of them to simplify. For now, I only attach file that exist.
+### For now
 
+1. Some property is not filled by default, like platform, and could not be set by now. If you think they are useful, please let me know!
 
+2. repeat tests. For now each run of test(including retry) will be added as one test individually.
 
-### Compare with Azure-report
-
-Azure-report 
-
-good:
-flexible, better control with azure. Maybe powerful for advanced situation. As long as Azure has the feature, you could use it.
-accurate, There is no mismatch, no more and no less, everything is from Azure and for Azure.
-
-not good:
-Complex configutation, you need to set azure configuration totally by yourself(even token, it's fine, but kind of strange).
-Many requests sent to Azure, might be a problem.
-Tight couple with Azure.
-
-not sure:
-Could not set owner, priority for test.
-Do you need to set test plan or something else in Azure to make it work?
-Do you need to make whole project on Azure?(.e.g, your repo is on github, but you could use Azure Pipeline to run test)
-Does it depends on some other reporter like "list" to work correctly? Why there is "list" reporter in the test config?
-
-trx-reporter
-
-good:
-The TRX might be consumed by others.
-You could see the TRX locally and easy to debug. Uploading result to cloud(including Azure) is another step.
-Support set owner and priority for each test case.
-Mostly like other reporter.
-
-not good: 
-it's just TRX, in the future if azure has a new feature and azure does not adapt it for trx or TRX could not support it, there is nothing we could do.
+3. Azure DevOps supports to add Attachment, but we have 9 different ways to do that! I have no idea what the difference really is for some of them. And even they are same, I might only use some of them to simplify. For now, I only attach file that exist.
