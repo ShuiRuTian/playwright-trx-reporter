@@ -8,7 +8,7 @@
 // otherwise you should change the corresponding impl in serialization.ts
 
 // give it a unique type, so that we get type check correctly.
-export type IDSimpleType = string & { idSimpleType: void };
+export type IDSimpleType = string & { __idSimpleType: void };
 
 export const UNIT_TEST_TYPE: IDSimpleType = '13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b' as IDSimpleType;
 

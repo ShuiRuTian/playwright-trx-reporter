@@ -73,7 +73,7 @@ export class TestRunBuilder {
     const { testDefinitionAdditionalInfo } = options;
     const { owner, priority, fileLocation, workItemIds, className } = testDefinitionAdditionalInfo;
 
-    // addd test definition
+    // add test definition
     const unitTest: UnitTestType = new UnitTestType({
       $id: testResult.$testId,
       $name: testResult.$testName,
@@ -91,7 +91,11 @@ export class TestRunBuilder {
         $name: testResult.$testName,
       },
     });
-    this._TestDefinitions?.UnitTest?.push(unitTest);
+
+    // One test might be run more than once due to flaky.
+    // Only add the definition once.
+    if (this._TestDefinitions?.UnitTest?.every((t => t.$id !== unitTest.$id)))
+      this._TestDefinitions?.UnitTest?.push(unitTest);
 
     // add test entry
     const testEntry = new TestEntryType({

@@ -1,18 +1,18 @@
 import { test } from '@playwright/test';
 
-class TrxHelper{
-  static pushAnnotation(type:string, value:string){
+class TrxHelper {
+  static pushAnnotation(type: string, value: string) {
     test.info().annotations.push({
-      type:type,
-      description:value,
+      type: type,
+      description: value,
     });
   }
 
-  static owner(owner:string){
+  static owner(owner: string) {
     this.pushAnnotation('owner', owner);
   }
 
-  static priority(priority:number){
+  static priority(priority: number) {
     this.pushAnnotation('priority', priority.toString());
   }
 }
@@ -28,6 +28,11 @@ test('trx-priority', async ({ page }) => {
 test('trx-exception', async ({ page }) => {
   test.fail();
   throw new Error();
+});
+
+test('trx-retry-when-failed', async ({ page }, testInfo) => {
+  if (testInfo.retry === 0)
+    throw new Error();
 });
 
 test('trx-stdout', async ({ page }) => {
