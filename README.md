@@ -6,7 +6,7 @@
 const config: PlaywrightTestConfig = {
   ...
   reporter: [
-    ['./index.ts', { 
+    ['playwright-trx-reporter', { 
       outputFile: "./reporter/output.trx",
       // will find the annotations of one test case,
       // use the last one whose type is `ownerAnnotation`
