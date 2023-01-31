@@ -11,7 +11,7 @@ import { devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  testDir: './playwright-tests',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -33,8 +33,8 @@ const config: PlaywrightTestConfig = {
   // reporter: 'junit',
   reporter: [
     ['html'],
-    ['./index.ts', { outputFile: "./reporter/trxForm.trx" }],
-    ['json', { outputFile: 'jsonForm.json' }]
+    ['./index.ts', { outputFile: "./playwright-test-reports/trxForm.trx" }],
+    ['json', { outputFile: './playwright-test-reports/jsonForm.json' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
