@@ -2,12 +2,22 @@
 import type { FullConfig, FullResult, Reporter, Suite } from '@playwright/test/reporter';
 import path from 'path';
 import { promises as fsPromises } from 'fs';
-import {  TestRunBuilder } from './TestRunBuilder';
+import { TestRunBuilder } from './TestRunBuilder';
 import { serialize2Xml } from './serialization';
 import { createUuid, runUser } from './utils';
+import { MultiTrxsBuilder, SingleTrxBuilder } from './trxWriter';
 
-interface TrxReporterOptions {
-  outputFile?: string;
+interface OutputFilesInfo {
+  folder: string,
+  prefirx: string,
+}
+
+export interface TrxReporterOptions {
+  /**
+   * Azure DevOps supports "Rerun failed tests". But we need to generate multi trx files and publish them all.
+   * @see {@link https://learn.microsoft.com/en-us/azure/devops/pipelines/test/review-continuous-test-results-after-build?view=azure-devops#view-summarized-test-results}
+   */
+  outputFile?: string | OutputFilesInfo;
   /**
    * Set owner for each test case from annotation.
    * 
@@ -38,19 +48,19 @@ export class TrxReporter implements Reporter {
 
   private startTimeDate!: Date;
 
-  private outputFile: string | undefined;
+  private outputFileInfo: string | OutputFilesInfo | undefined;
 
   private totalTestCount!: number;
-
 
   private ownerAnnotation: string;
 
   private priorityAnnotation: string;
 
   constructor(options: TrxReporterOptions = {}) {
-    this.outputFile = options.outputFile || process.env[outputFileEnv];
-    this.ownerAnnotation = options.ownerAnnotation || 'owner';
-    this.priorityAnnotation = options.priorityAnnotation || 'priority';
+    const outputFilePath = (typeof options.outputFile === "string" ? options.outputFile : undefined) || process.env[outputFileEnv];
+    this.outputFileInfo = outputFilePath ?? options.outputFile;
+    this.ownerAnnotation = options.ownerAnnotation ?? 'owner';
+    this.priorityAnnotation = options.priorityAnnotation ?? 'priority';
   }
 
   log(str: string) {
@@ -62,7 +72,7 @@ export class TrxReporter implements Reporter {
   }
 
   printsToStdio() {
-    return !this.outputFile;
+    return !this.outputFileInfo;
   }
 
   onBegin(config: FullConfig, suite: Suite) {
@@ -77,30 +87,37 @@ export class TrxReporter implements Reporter {
 
     const finalRunUser = process.env[runUserEnv] || runUser;
 
-    const testRunBuilder = new TestRunBuilder({
-      id: createUuid(),
-      name: `${finalRunUser} ${this.startTimeDate.toISOString()}`,
-      startTime: this.startTimeDate.toISOString(),
-      endTime: endTime.toISOString(),
-      runUser: finalRunUser,
-      pwSummaryOutcome: result.status,
+    const finalTrxsBuilder = typeof this.outputFileInfo === "string" ? new SingleTrxBuilder() : new MultiTrxsBuilder();
+
+    const testRuns = finalTrxsBuilder.analytics(this.suite, {
+      ownerAnnotation: this.ownerAnnotation,
+      priorityAnnotation: this.priorityAnnotation,
+      testRunBuilderOptions: {
+        id: createUuid(),
+        name: `${finalRunUser} ${this.startTimeDate.toISOString()}`,
+        startTime: this.startTimeDate.toISOString(),
+        endTime: endTime.toISOString(),
+        runUser: finalRunUser,
+        pwSummaryOutcome: result.status,
+      }
     });
 
-    this._mergeAllSuitesToTestRunBuilder(testRunBuilder);
+    const tasks = testRuns.map(async testRun => {
+      const lines: string[] = [];
+      serialize2Xml(lines, 'TestRun', testRun, true);
+      const reportString = lines.join('\n');
 
-    const testRun = testRunBuilder.build();
+      // FIXME: get the correct output file.
+      const outputFile = this.outputFile;
 
-    const lines: string[] = [];
-    serialize2Xml(lines, 'TestRun', testRun, true);
-    const reportString = lines.join('\n');
+      if (outputFile) {
+        await fsPromises.mkdir(path.dirname(outputFile), { recursive: true });
+        await fsPromises.writeFile(outputFile, reportString);
+      } else {
+        console.log(reportString);
+      }
+    });
 
-    const outputFile = this.outputFile;
-
-    if (outputFile) {
-      await fsPromises.mkdir(path.dirname(outputFile), { recursive: true });
-      await fsPromises.writeFile(outputFile, reportString);
-    } else {
-      console.log(reportString);
-    }
+    await Promise.all(tasks);
   }
 }

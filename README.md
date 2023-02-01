@@ -8,11 +8,6 @@ const config: PlaywrightTestConfig = {
   reporter: [
     ['playwright-trx-reporter', { 
       outputFile: "./reporter/output.trx",
-      // will find the annotations of one test case,
-      // use the last one whose type is `ownerAnnotation`
-      // as the owner of test to generate report.
-      ownerAnnotation: "owner",
-      priorityAnnotation: "priority",
       }]
   ],
   ...
@@ -61,6 +56,13 @@ const config: PlaywrightTestConfig = {
         // trx.owner('someone else')
     });
 ```
+
+## Single TRX VS Multi TRX
+Azure test supports "Rerun failed tests" and "Data driven tests". Reference: https://learn.microsoft.com/en-us/azure/devops/pipelines/test/review-continuous-test-results-after-build?view=azure-devops#view-summarized-test-results
+
+"Data driven tests" is common and powerful, but it's kind of different when it comes to JS. JS is highly dynamic, which allows you to create test cases dynamically. In comparation, C# and Java need you give a centain test name(the method name with specific attribute/annotation). So this feature is encouraged to skip.
+
+"Rerun failed tests" is Charming. However, it's not trivial. To get this feature, we need to generate multi trx file and publish them together. And the test model might not be matched pretty well.
 
 ## TRX
 A list of many test data format: https://help.testspace.com/reference/data-formats/

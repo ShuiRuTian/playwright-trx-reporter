@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import type {  Suite, TestCase, TestResult, TestStatus } from '@playwright/test/reporter';
+import type { Suite, TestCase, TestResult, TestStatus } from '@playwright/test/reporter';
 import fs from 'fs';
 import { RESULT_NOT_IN_A_LIST_ID, TestRunBuilder, TestRunBuilderOptions } from './TestRunBuilder';
 import { OutputType, TestOutcome, UnitTestResultType, UNIT_TEST_TYPE } from './trxModel';
@@ -9,15 +9,15 @@ import { computerName, convertPwId2Uuid, createUuid } from './utils';
 
 interface TrxsBuilder {
   /**
-       * Analytics the root suite of playwright. And generate trx models.
-       * 
-       * @param rootSuite The root suite of playwright
-       * @returns the generated trx models
-       */
-  analytics(rootSuite: Suite, options:TrxWriterOptions): TestRunType[];
+   * Analytics the root suite of playwright. And generate trx models.
+   * 
+   * @param rootSuite The root suite of playwright
+   * @returns the generated trx models
+   */
+  analytics(rootSuite: Suite, options: TrxWriterOptions): TestRunType[];
 }
 
-export interface TrxWriterOptions{
+export interface TrxWriterOptions {
   /**
    * The type of `annotation`, whose value will be the trx model's 'owner'
    */
@@ -27,24 +27,24 @@ export interface TrxWriterOptions{
    * The type of `annotation`, whose value will be the trx model's 'priority'
    */
   priorityAnnotation: string,
-    
+
   /**
    * The constructor options of `TestRunBuilder`
    */
-  testRunBuilderOptions:TestRunBuilderOptions,
+  testRunBuilderOptions: TestRunBuilderOptions,
 }
 
-interface TestRunsBuilder { 
+interface TestRunsBuilder {
   /**
    * Get an existing `TestRunBuilder` or create a new one.
    * 
    * We assume that testResultIndex is the same as current retry time.
    */
   getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder;
-  build():TestRunType[];
+  build(): TestRunType[];
 }
 
-function mergeAllSuitesToTestRunBuilder(testRunsBuilder: TestRunsBuilder, suite:Suite, options:TrxWriterOptions) {
+function mergeAllSuitesToTestRunBuilder(testRunsBuilder: TestRunsBuilder, suite: Suite, options: TrxWriterOptions) {
   for (const projectSuite of suite.suites) {
     for (const fileSuite of projectSuite.suites) {
       mergeFileOrGroupSuite(testRunsBuilder, fileSuite, options);
@@ -52,7 +52,7 @@ function mergeAllSuitesToTestRunBuilder(testRunsBuilder: TestRunsBuilder, suite:
   }
 }
 
-function mergeFileOrGroupSuite(testRunsBuilder: TestRunsBuilder, suite: Suite, options:TrxWriterOptions) {
+function mergeFileOrGroupSuite(testRunsBuilder: TestRunsBuilder, suite: Suite, options: TrxWriterOptions) {
   if (suite.allTests().length === 0)
     return;
   suite.tests.forEach(test => {
@@ -154,7 +154,7 @@ function bindAttachment(unitTestResult: UnitTestResultType, test: TestCase, resu
       if (fs.existsSync(attachmentPath)) {
         attachmentPaths.push(attachmentPath);
       } else {
-        this.warn(`File path "${attachmentPath}" is not found for Attachment "${attachment.name}"`);
+        console.warn(`File path "${attachmentPath}" is not found for Attachment "${attachment.name}"`);
       }
     }
   }
@@ -196,28 +196,55 @@ function getFromAnnotationByType(annotations: TestCase['annotations'], type: str
   }
 }
 
-class SingleTrxWriterTestRunsBuilder implements TestRunsBuilder{
-  private _builders: TestRunBuilder[] = [];
-
-  getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder {
-    throw new Error('Method not implemented.');
-  }
-
-  build(): TestRunType[] {
-    return this._builders.map(b=>b.build());
-  } 
+function createDummyTestRunBuilderOption(): TestRunBuilderOptions {
+  return {
+    id: createUuid(),
+    name: `dummy name`,
+    startTime: (new Date()).toISOString(),
+    endTime: (new Date()).toISOString(),
+    runUser: `dummy runUser`,
+    pwSummaryOutcome: 'passed',
+  };
 }
 
-class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder{
+class SingleTrxWriterTestRunsBuilder implements TestRunsBuilder {
   private _builders: TestRunBuilder[] = [];
 
+  constructor(private _options: TestRunBuilderOptions) {
+  }
+
   getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder {
-    throw new Error('Method not implemented.');
+    if (!this._builders[0]) {
+      const finalOption = this._options;
+      const newBuilder: TestRunBuilder = new TestRunBuilder(finalOption);
+      this._builders[0] = newBuilder;
+    }
+    return this._builders[0];
   }
 
   build(): TestRunType[] {
-    return this._builders.map(b=>b.build());
-  } 
+    return this._builders.map(b => b.build());
+  }
+}
+
+
+class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder {
+  private _builders: TestRunBuilder[] = [];
+  constructor(private _options: TestRunBuilderOptions) {
+  }
+
+  getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder {
+    if (!this._builders[testResultIndex]) {
+      const finalOption = testResultIndex === 0 ? this._options : createDummyTestRunBuilderOption();
+      const newBuilder: TestRunBuilder = new TestRunBuilder(finalOption);
+      this._builders[testResultIndex] = newBuilder;
+    }
+    return this._builders[testResultIndex];
+  }
+
+  build(): TestRunType[] {
+    return this._builders.map(b => b.build());
+  }
 }
 
 /**
@@ -225,7 +252,7 @@ class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder{
  */
 export class SingleTrxBuilder implements TrxsBuilder {
   analytics(rootSuite: Suite, options: TrxWriterOptions): TestRunType[] {
-    const b = new SingleTrxWriterTestRunsBuilder();
+    const b = new SingleTrxWriterTestRunsBuilder(options.testRunBuilderOptions);
     mergeAllSuitesToTestRunBuilder(b, rootSuite, options);
     return b.build();
   }
@@ -235,7 +262,9 @@ export class SingleTrxBuilder implements TrxsBuilder {
  * The trx cases might be written into multi trx files.
  */
 export class MultiTrxsBuilder implements TrxsBuilder {
-  analytics(rootSuite: Suite, options:TrxWriterOptions): TestRunType[] {
-    throw new Error('Method not implemented.');
+  analytics(rootSuite: Suite, options: TrxWriterOptions): TestRunType[] {
+    const b = new MultiTrxWriterTestRunsBuilder(options.testRunBuilderOptions);
+    mergeAllSuitesToTestRunBuilder(b, rootSuite, options);
+    return b.build();
   }
 } 
