@@ -1,6 +1,7 @@
 import type { FullResult } from '@playwright/test/reporter';
+import type { serialize2Xml } from './serialization';
 import { CountersType, IDSimpleType, ResultsType, ResultSummary, TestDefinitionType, TestEntriesType, TestEntryType, TestListType, TestOutcome, TestRunType, Times, UnitTestResultType, UnitTestType, WorkItemIDsType } from './trxModel';
-import { assertNever } from './assert';
+import { assert, assertNever } from './assert';
 
 // Magic number
 // Copied from an existing trx file
@@ -31,6 +32,9 @@ export interface AddTestResultOptions {
   }
 }
 
+/**
+ * Create a whole trx object, which could be serilized by {@link serialize2Xml}
+ */
 export class TestRunBuilder {
   private _testRun: TestRunType;
 
@@ -45,6 +49,8 @@ export class TestRunBuilder {
   private _ResultSummary: ResultSummary;
 
   private _Times: Times;
+
+  private _isBuilt = false;
 
   constructor(options: TestRunBuilderOptions) {
     const { id, name, runUser, pwSummaryOutcome: summaryOutcome, endTime, startTime } = options;
@@ -155,8 +161,10 @@ export class TestRunBuilder {
     }
   }
 
-  // this is not a real builder, you should not build twice.
   build(): TestRunType {
+    if (this._isBuilt)
+      assert("'TestRunBuilder' should not call `build` twice.");
+    this._isBuilt = true;
     this._testRun.ResultSummary = this._ResultSummary;
     this._testRun.Results = this._Results;
     this._testRun.TestDefinitions = this._TestDefinitions;
