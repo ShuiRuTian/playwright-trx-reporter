@@ -24,6 +24,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+# This task must not throw any error, .i.e not exit with 1. Otherwise, `PublishTestResults` will not run.
 - script: |
     npm run $(playwright_script)
   displayName: 'npm test'
@@ -32,4 +33,4 @@ steps:
   inputs:
     testResultsFiles: '**/*.trx'
     testResultsFormat: 'VSTest'
-    # failTaskOnFailedTests: true
+    failTaskOnFailedTests: true

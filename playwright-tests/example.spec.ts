@@ -56,11 +56,11 @@ test('trx-attachment-png', async ({ page }, testInfo) => {
 });
 
 test('trx-out-of-time', async ({ page }, testInfo) => {
-  // test.setTimeout(1);
-  // console.log('[out-of-time]: log');
-  // console.error('[out-of-time]: error');
-  // for (let index = 0; index < 10000000; index++) {
-  // }
+  test.setTimeout(1);
+  console.log('[out-of-time]: log');
+  console.error('[out-of-time]: error');
+  for (let index = 0; index < 10000000; index++) {
+  }
 });
 
 const testWithAoto = test.extend<{ trx_auto_1: void }>({
