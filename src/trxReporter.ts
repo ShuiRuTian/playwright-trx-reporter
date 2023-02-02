@@ -16,6 +16,8 @@ export interface TrxReporterOptions {
   /**
    * Azure DevOps supports "Rerun failed tests". But we need to generate multi trx files and publish them all.
    * @see {@link https://learn.microsoft.com/en-us/azure/devops/pipelines/test/review-continuous-test-results-after-build?view=azure-devops#view-summarized-test-results}
+   * @example "./reporter/output.trx"
+   * @example {folder: "./reporter", prefirx: "output"} // the reports will be generated as "./reporter/output_1.trx", "./reporter/output_2.trx" and so on.
    */
   outputFile?: string | OutputFilesInfo;
   /**
@@ -40,6 +42,8 @@ const outputFileEnv = 'PLAYWRIGHT_TRX_OUTPUT_NAME';
 const runUserEnv = 'PLAYWRIGHT_TRX_RUN_USER_NAME';
 const logPrefix = 'pw_trx_reporter: ';
 
+type OutputFileInfo = string | OutputFilesInfo | undefined;
+
 export class TrxReporter implements Reporter {
 
   private config!: FullConfig;
@@ -48,7 +52,7 @@ export class TrxReporter implements Reporter {
 
   private startTimeDate!: Date;
 
-  private outputFileInfo: string | OutputFilesInfo | undefined;
+  private outputFileInfo: OutputFileInfo;
 
   private totalTestCount!: number;
 
@@ -57,7 +61,7 @@ export class TrxReporter implements Reporter {
   private priorityAnnotation: string;
 
   constructor(options: TrxReporterOptions = {}) {
-    const outputFilePath = (typeof options.outputFile === "string" ? options.outputFile : undefined) || process.env[outputFileEnv];
+    const outputFilePath = (typeof options.outputFile === 'string' ? options.outputFile : undefined) || process.env[outputFileEnv];
     this.outputFileInfo = outputFilePath ?? options.outputFile;
     this.ownerAnnotation = options.ownerAnnotation ?? 'owner';
     this.priorityAnnotation = options.priorityAnnotation ?? 'priority';
@@ -87,7 +91,7 @@ export class TrxReporter implements Reporter {
 
     const finalRunUser = process.env[runUserEnv] || runUser;
 
-    const finalTrxsBuilder = typeof this.outputFileInfo === "string" ? new SingleTrxBuilder() : new MultiTrxsBuilder();
+    const finalTrxsBuilder = typeof this.outputFileInfo === 'string' ? new SingleTrxBuilder() : new MultiTrxsBuilder();
 
     const testRuns = finalTrxsBuilder.analytics(this.suite, {
       ownerAnnotation: this.ownerAnnotation,
@@ -99,16 +103,15 @@ export class TrxReporter implements Reporter {
         endTime: endTime.toISOString(),
         runUser: finalRunUser,
         pwSummaryOutcome: result.status,
-      }
+      },
     });
 
-    const tasks = testRuns.map(async testRun => {
+    const tasks = testRuns.map(async (testRun, index) => {
       const lines: string[] = [];
       serialize2Xml(lines, 'TestRun', testRun, true);
       const reportString = lines.join('\n');
 
-      // FIXME: get the correct output file.
-      const outputFile = this.outputFile;
+      const outputFile = getFilePath(this.outputFileInfo, index);
 
       if (outputFile) {
         await fsPromises.mkdir(path.dirname(outputFile), { recursive: true });
@@ -119,5 +122,19 @@ export class TrxReporter implements Reporter {
     });
 
     await Promise.all(tasks);
+  }
+}
+
+function getFilePath(info: OutputFileInfo, index: number): string | undefined{ 
+  switch (true) {
+    // single file output
+    case typeof info === 'string':
+      return info as string;
+    // multi file output
+    case typeof info === 'object':
+      return (info as OutputFilesInfo).folder + (info as OutputFilesInfo).prefirx;
+    // console output
+    case typeof info === 'undefined':
+      return undefined;
   }
 }

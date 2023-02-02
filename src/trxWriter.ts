@@ -199,10 +199,10 @@ function getFromAnnotationByType(annotations: TestCase['annotations'], type: str
 function createDummyTestRunBuilderOption(): TestRunBuilderOptions {
   return {
     id: createUuid(),
-    name: `dummy name`,
+    name: 'dummy name',
     startTime: (new Date()).toISOString(),
     endTime: (new Date()).toISOString(),
-    runUser: `dummy runUser`,
+    runUser: 'dummy runUser',
     pwSummaryOutcome: 'passed',
   };
 }
@@ -230,6 +230,7 @@ class SingleTrxWriterTestRunsBuilder implements TestRunsBuilder {
 
 class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder {
   private _builders: TestRunBuilder[] = [];
+
   constructor(private _options: TestRunBuilderOptions) {
   }
 
