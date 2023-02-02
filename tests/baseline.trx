@@ -1,106 +1,72 @@
-<TestRun id="831d855d-3009-4790-9f13-c01916eca19d" name="LAPTOP-K2EK61Q7\songgao 2023-01-26T15:16:30.246Z"
-    runUser="LAPTOP-K2EK61Q7\songgao" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="e62f2fc5-c5d0-4220-a544-59e2bc33fad4" name="MININT-JGGQRNR\songgao 2023-02-02T05:44:26.666Z" runUser="MININT-JGGQRNR\songgao"
+    xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
     <TestDefinitions>
-        <UnitTest id="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" name="trx-owner"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+        <UnitTest id="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" name="trx-owner" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
             <Owners>
-                <Owner name="Song Gao" />
+                <Owner name="Song Gao"/>
             </Owners>
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-owner" />
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-owner"/>
         </UnitTest>
-        <UnitTest id="04568db8-8468-57c2-9447-9f9bfec179a5" name="trx-priority" priority="1"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-priority" />
+        <UnitTest id="04568db8-8468-57c2-9447-9f9bfec179a5" name="trx-priority" priority="1" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-priority"/>
         </UnitTest>
-        <UnitTest id="01ce8f93-9bd0-5008-82dc-83ea6db527b7" name="trx-exception"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-exception" />
+        <UnitTest id="01ce8f93-9bd0-5008-82dc-83ea6db527b7" name="trx-exception" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-exception"/>
         </UnitTest>
-        <UnitTest id="f1fbf9d4-af2b-5277-b100-558d02b71af2" name="trx-retry-when-failed"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts"
-                name="trx-retry-when-failed" />
+        <UnitTest id="f1fbf9d4-af2b-5277-b100-558d02b71af2" name="trx-retry-when-failed" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-retry-when-failed"/>
         </UnitTest>
-        <UnitTest id="18225929-31e3-52ff-a669-7df9fe804a08" name="trx-stdout"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-stdout" />
+        <UnitTest id="18225929-31e3-52ff-a669-7df9fe804a08" name="trx-stdout" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-stdout"/>
         </UnitTest>
-        <UnitTest id="32bbf147-3f79-5604-b8d9-5fdd5f912808" name="trx-stderr"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-stderr" />
+        <UnitTest id="32bbf147-3f79-5604-b8d9-5fdd5f912808" name="trx-stderr" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-stderr"/>
         </UnitTest>
-        <UnitTest id="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" name="trx-attachment-text"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts"
-                name="trx-attachment-text" />
+        <UnitTest id="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" name="trx-attachment-text" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-attachment-text"/>
         </UnitTest>
-        <UnitTest id="c0e565df-9e66-570f-8028-927454205bcd" name="trx-attachment-png"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts"
-                name="trx-attachment-png" />
+        <UnitTest id="c0e565df-9e66-570f-8028-927454205bcd" name="trx-attachment-png" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-attachment-png"/>
         </UnitTest>
-        <UnitTest id="2c91d602-0f17-5c1e-9936-9b0ef9c51917" name="auto" priority="5"
-            storage="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+        <UnitTest id="81fa697e-f6ee-5542-b2f8-c13837512c20" name="trx-out-of-time" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-out-of-time"/>
+        </UnitTest>
+        <UnitTest id="2c91d602-0f17-5c1e-9936-9b0ef9c51917" name="auto" priority="5" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
             <Owners>
-                <Owner name="Someone" />
+                <Owner name="Someone"/>
             </Owners>
-            <TestMethod className="chromium &gt; example.spec.ts"
-                codeBase="C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="auto" />
+            <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="auto"/>
         </UnitTest>
     </TestDefinitions>
     <TestLists>
-        <TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List" />
-        <TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results" />
+        <TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List"/>
+        <TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results"/>
     </TestLists>
     <TestEntries>
-        <TestEntry testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" executionId="f72ab86e-ec83-4758-82b9-ddde738123e9"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="04568db8-8468-57c2-9447-9f9bfec179a5" executionId="dcf8f51d-bf43-473e-9331-a6019a8e6b00"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" executionId="00293b4c-5c10-4bca-a492-1909c07c9c74"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="2b1853cc-4704-4389-9b06-70e4038bd5be"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="c3febd12-1acc-4cd3-adf0-88b399dafb13"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="18225929-31e3-52ff-a669-7df9fe804a08" executionId="110c7160-75a7-423f-9c3f-9a597a25bbfb"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" executionId="7c36d9c8-e91f-4aa5-b02c-9d964bbef90d"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" executionId="791a1bbd-283b-45a9-83bb-5a25cd0bf0f7"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="c0e565df-9e66-570f-8028-927454205bcd" executionId="ed04fadd-d060-4069-88ff-4a1a4ca02b13"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-        <TestEntry testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" executionId="725bbe7d-c918-4c97-8829-430ab410449c"
-            testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+        <TestEntry testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" executionId="3ab7770b-3d8f-4500-982d-51e8e0e6dad4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="04568db8-8468-57c2-9447-9f9bfec179a5" executionId="7fd971fe-fabb-4414-9608-17cc256dc4c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" executionId="9cc1c07c-9b53-4421-9d61-4a54846e12e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="8c1225eb-865c-44c8-bd5f-8043e4c7908f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="86830c04-0a0c-4fbc-8f83-1bf7bdf97a26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="18225929-31e3-52ff-a669-7df9fe804a08" executionId="670c597d-ef8c-4849-8ad4-7c65bc639c55" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" executionId="0cf4590f-312f-45d7-b58d-f9ea0319ae1a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" executionId="97a8ba34-3ce2-4b04-a4b4-f3fb0ea8797e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="c0e565df-9e66-570f-8028-927454205bcd" executionId="0146f709-6e38-48e8-96b1-53fc76b4371f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="e30da6aa-8aa8-4b03-acb0-9ca9e6b33d5c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="fa9d0bfc-7ac8-4a00-9a1f-65f455c54866" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="ecdcf4ab-3cc6-49e8-8bd0-23dbdf943a43" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+        <TestEntry testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" executionId="b96ed8df-7162-4c23-9405-b173d70912d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
     </TestEntries>
-    <Times creation="2023-01-26T15:16:30.246Z" finish="2023-01-26T15:16:35.826Z" />
+    <Times creation="2023-02-02T05:44:26.666Z" finish="2023-02-02T05:44:35.964Z"/>
     <Results>
-        <UnitTestResult testName="trx-owner" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="f72ab86e-ec83-4758-82b9-ddde738123e9" outcome="Passed"
-            startTime="2023-01-26T15:16:30.811Z" endTime="2023-01-26T15:16:31.138Z" duration="00:00:00.327" />
-        <UnitTestResult testName="trx-priority" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="04568db8-8468-57c2-9447-9f9bfec179a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="dcf8f51d-bf43-473e-9331-a6019a8e6b00" outcome="Passed"
-            startTime="2023-01-26T15:16:31.850Z" endTime="2023-01-26T15:16:32.130Z" duration="00:00:00.280" />
-        <UnitTestResult testName="trx-exception" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="00293b4c-5c10-4bca-a492-1909c07c9c74" outcome="Failed"
-            startTime="2023-01-26T15:16:32.132Z" endTime="2023-01-26T15:16:32.402Z" duration="00:00:00.270">
+        <UnitTestResult testName="trx-owner" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="3ab7770b-3d8f-4500-982d-51e8e0e6dad4" outcome="Passed" startTime="2023-02-02T05:44:27.199Z" endTime="2023-02-02T05:44:27.593Z" duration="00:00:00.394"/>
+        <UnitTestResult testName="trx-priority" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="04568db8-8468-57c2-9447-9f9bfec179a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="7fd971fe-fabb-4414-9608-17cc256dc4c1" outcome="Passed" startTime="2023-02-02T05:44:28.252Z" endTime="2023-02-02T05:44:28.524Z" duration="00:00:00.272"/>
+        <UnitTestResult testName="trx-exception" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="9cc1c07c-9b53-4421-9d61-4a54846e12e0" outcome="Failed" startTime="2023-02-02T05:44:28.526Z" endTime="2023-02-02T05:44:28.826Z" duration="00:00:00.300">
             <Output>
                 <ErrorInfo>
                     <StackTrace>
                         <![CDATA[
-    at C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts:30:9]]>
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:30:9]]>
                     </StackTrace>
                     <Message>
                         <![CDATA[Error: ]]>
@@ -108,15 +74,12 @@
                 </ErrorInfo>
             </Output>
         </UnitTestResult>
-        <UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="2b1853cc-4704-4389-9b06-70e4038bd5be" outcome="Failed"
-            startTime="2023-01-26T15:16:32.404Z" endTime="2023-01-26T15:16:32.729Z" duration="00:00:00.325">
+        <UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="8c1225eb-865c-44c8-bd5f-8043e4c7908f" outcome="Failed" startTime="2023-02-02T05:44:28.827Z" endTime="2023-02-02T05:44:29.122Z" duration="00:00:00.295">
             <Output>
                 <ErrorInfo>
                     <StackTrace>
                         <![CDATA[
-    at C:\Code\trx-reporter-for-playwright\playwright-tests\example.spec.ts:35:11]]>
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:35:11]]>
                     </StackTrace>
                     <Message>
                         <![CDATA[Error: ]]>
@@ -124,22 +87,13 @@
                 </ErrorInfo>
             </Output>
             <ResultFiles>
-                <ResultFile
-                    path="C:\Code\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\video.webm" />
-                <ResultFile
-                    path="C:\Code\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\trace.zip" />
-                <ResultFile
-                    path="C:\Code\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\test-failed-1.png" />
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\video.webm"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\trace.zip"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\test-failed-1.png"/>
             </ResultFiles>
         </UnitTestResult>
-        <UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="c3febd12-1acc-4cd3-adf0-88b399dafb13" outcome="Passed"
-            startTime="2023-01-26T15:16:33.350Z" endTime="2023-01-26T15:16:33.760Z" duration="00:00:00.410" />
-        <UnitTestResult testName="trx-stdout" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="18225929-31e3-52ff-a669-7df9fe804a08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="110c7160-75a7-423f-9c3f-9a597a25bbfb" outcome="Passed"
-            startTime="2023-01-26T15:16:34.494Z" endTime="2023-01-26T15:16:34.796Z" duration="00:00:00.302">
+        <UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="86830c04-0a0c-4fbc-8f83-1bf7bdf97a26" outcome="Passed" startTime="2023-02-02T05:44:29.696Z" endTime="2023-02-02T05:44:30.057Z" duration="00:00:00.361"/>
+        <UnitTestResult testName="trx-stdout" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="18225929-31e3-52ff-a669-7df9fe804a08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="670c597d-ef8c-4849-8ad4-7c65bc639c55" outcome="Passed" startTime="2023-02-02T05:44:30.565Z" endTime="2023-02-02T05:44:30.842Z" duration="00:00:00.277">
             <Output>
                 <StdOut>
                     <![CDATA[output to std out stream
@@ -147,10 +101,7 @@
                 </StdOut>
             </Output>
         </UnitTestResult>
-        <UnitTestResult testName="trx-stderr" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="7c36d9c8-e91f-4aa5-b02c-9d964bbef90d" outcome="Passed"
-            startTime="2023-01-26T15:16:34.798Z" endTime="2023-01-26T15:16:35.082Z" duration="00:00:00.284">
+        <UnitTestResult testName="trx-stderr" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="0cf4590f-312f-45d7-b58d-f9ea0319ae1a" outcome="Passed" startTime="2023-02-02T05:44:30.844Z" endTime="2023-02-02T05:44:31.130Z" duration="00:00:00.286">
             <Output>
                 <StdErr>
                     <![CDATA[output to std err stream
@@ -158,32 +109,70 @@
                 </StdErr>
             </Output>
         </UnitTestResult>
-        <UnitTestResult testName="trx-attachment-text" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="791a1bbd-283b-45a9-83bb-5a25cd0bf0f7" outcome="Passed"
-            startTime="2023-01-26T15:16:35.084Z" endTime="2023-01-26T15:16:35.349Z" duration="00:00:00.265">
+        <UnitTestResult testName="trx-attachment-text" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="97a8ba34-3ce2-4b04-a4b4-f3fb0ea8797e" outcome="Passed" startTime="2023-02-02T05:44:31.132Z" endTime="2023-02-02T05:44:31.426Z" duration="00:00:00.294">
             <ResultFiles>
-                <ResultFile
-                    path="C:\Code\trx-reporter-for-playwright\test-results\example-trx-attachment-text-chromium\attachments\d1acfa6312f42e80e95cf958223fc9a597628d00.txt" />
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-text-chromium\attachments\d1acfa6312f42e80e95cf958223fc9a597628d00.txt"/>
             </ResultFiles>
         </UnitTestResult>
-        <UnitTestResult testName="trx-attachment-png" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="c0e565df-9e66-570f-8028-927454205bcd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="ed04fadd-d060-4069-88ff-4a1a4ca02b13" outcome="Passed"
-            startTime="2023-01-26T15:16:35.352Z" endTime="2023-01-26T15:16:35.636Z" duration="00:00:00.284">
+        <UnitTestResult testName="trx-attachment-png" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c0e565df-9e66-570f-8028-927454205bcd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="0146f709-6e38-48e8-96b1-53fc76b4371f" outcome="Passed" startTime="2023-02-02T05:44:31.428Z" endTime="2023-02-02T05:44:31.691Z" duration="00:00:00.263">
             <ResultFiles>
-                <ResultFile
-                    path="C:\Code\trx-reporter-for-playwright\test-results\example-trx-attachment-png-chromium\attachments\27d28f0ecc04dc78df90877641490bf7b6fae518.png" />
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-png-chromium\attachments\27d28f0ecc04dc78df90877641490bf7b6fae518.png"/>
             </ResultFiles>
         </UnitTestResult>
-        <UnitTestResult testName="auto" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
-            testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-            computerName="LAPTOP-K2EK61Q7" executionId="725bbe7d-c918-4c97-8829-430ab410449c" outcome="Passed"
-            startTime="2023-01-26T15:16:35.638Z" endTime="2023-01-26T15:16:35.639Z" duration="00:00:00.001" />
+        <UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="e30da6aa-8aa8-4b03-acb0-9ca9e6b33d5c" outcome="Timeout" startTime="2023-02-02T05:44:31.692Z" endTime="2023-02-02T05:44:31.867Z" duration="00:00:00.175">
+            <Output>
+                <StdOut>
+                    <![CDATA[[out-of-time]: log
+]]>
+                </StdOut>
+                <StdErr>
+                    <![CDATA[[out-of-time]: error
+]]>
+                </StdErr>
+            </Output>
+            <ResultFiles>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\video.webm"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\trace.zip"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\test-failed-1.png"/>
+            </ResultFiles>
+        </UnitTestResult>
+        <UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="fa9d0bfc-7ac8-4a00-9a1f-65f455c54866" outcome="Timeout" startTime="2023-02-02T05:44:32.597Z" endTime="2023-02-02T05:44:32.880Z" duration="00:00:00.283">
+            <Output>
+                <StdOut>
+                    <![CDATA[[out-of-time]: log
+]]>
+                </StdOut>
+                <StdErr>
+                    <![CDATA[[out-of-time]: error
+]]>
+                </StdErr>
+            </Output>
+            <ResultFiles>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\video.webm"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\trace.zip"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\test-failed-1.png"/>
+            </ResultFiles>
+        </UnitTestResult>
+        <UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="ecdcf4ab-3cc6-49e8-8bd0-23dbdf943a43" outcome="Timeout" startTime="2023-02-02T05:44:34.349Z" endTime="2023-02-02T05:44:34.598Z" duration="00:00:00.249">
+            <Output>
+                <StdOut>
+                    <![CDATA[[out-of-time]: log
+]]>
+                </StdOut>
+                <StdErr>
+                    <![CDATA[[out-of-time]: error
+]]>
+                </StdErr>
+            </Output>
+            <ResultFiles>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry2\video.webm"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry2\trace.zip"/>
+                <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry2\test-failed-1.png"/>
+            </ResultFiles>
+        </UnitTestResult>
+        <UnitTestResult testName="auto" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="b96ed8df-7162-4c23-9405-b173d70912d4" outcome="Passed" startTime="2023-02-02T05:44:35.869Z" endTime="2023-02-02T05:44:35.874Z" duration="00:00:00.005"/>
     </Results>
-    <ResultSummary outcome="Passed">
-        <Counters total="10" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0"
-            notRunnable="0" notExecuted="0" executed="10" disconnected="0" warning="0" passed="8" completed="0"
-            inProgress="0" pending="0" />
+    <ResultSummary outcome="Failed">
+        <Counters total="13" error="0" failed="2" timeout="3" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" executed="13" disconnected="0" warning="0" passed="8" completed="0" inProgress="0" pending="0"/>
     </ResultSummary>
 </TestRun>
