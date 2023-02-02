@@ -34,3 +34,4 @@ steps:
     testResultsFiles: '**/*.trx'
     testResultsFormat: 'VSTest'
     failTaskOnFailedTests: true
+    mergeTestResults: true
