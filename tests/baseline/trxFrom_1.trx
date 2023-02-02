@@ -1,0 +1,42 @@
+<TestRun id="f533f818-cef5-4d6b-97f9-bdd3adfd3cce" name="dummy name" runUser="dummy runUser" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestDefinitions>
+<UnitTest id="f1fbf9d4-af2b-5277-b100-558d02b71af2" name="trx-retry-when-failed" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-retry-when-failed"/>
+</UnitTest>
+<UnitTest id="81fa697e-f6ee-5542-b2f8-c13837512c20" name="trx-out-of-time" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-out-of-time"/>
+</UnitTest>
+</TestDefinitions>
+<TestLists>
+<TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List"/>
+<TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results"/>
+</TestLists>
+<TestEntries>
+<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="ce15d104-e0a6-4dfc-abbc-067b7ecfea58" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="e3d2f27d-88a8-417e-aded-03382896ea82" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+</TestEntries>
+<Times creation="2023-02-02T07:35:48.654Z" finish="2023-02-02T07:35:48.654Z"/>
+<Results>
+<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="ce15d104-e0a6-4dfc-abbc-067b7ecfea58" outcome="Passed" startTime="2023-02-02T07:35:43.878Z" endTime="2023-02-02T07:35:44.242Z" duration="00:00:00.364"/>
+<UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="e3d2f27d-88a8-417e-aded-03382896ea82" outcome="Timeout" startTime="2023-02-02T07:35:47.089Z" endTime="2023-02-02T07:35:47.319Z" duration="00:00:00.230">
+<Output>
+<StdOut>
+<![CDATA[[out-of-time]: log
+]]>
+</StdOut>
+<StdErr>
+<![CDATA[[out-of-time]: error
+]]>
+</StdErr>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+</Results>
+<ResultSummary outcome="Passed">
+<Counters total="2" error="0" failed="0" timeout="1" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" executed="2" disconnected="0" warning="0" passed="1" completed="0" inProgress="0" pending="0"/>
+</ResultSummary>
+</TestRun>

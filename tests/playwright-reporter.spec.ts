@@ -1,6 +1,6 @@
 import { assert } from '../src/assert';
 import { X2jOptions, XMLParser } from 'fast-xml-parser';
-import { readFile } from 'fs/promises';
+import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 
 const FRAGLE_ATTRIBUTES_KEY = '__FRAGLE';
@@ -97,14 +97,26 @@ function equalMap(cb: Function, a: any, b: any): any {
   return cb(a, b);
 }
 
+async function assertBaselineIsEqual(currentFilePath: string) {
+  const baselineFileName = path.basename(currentFilePath);
+  const baselineFilePath = path.resolve('__dirname', 'baseline', baselineFileName);
+  const [baselineText, currentText] = await Promise.all([
+    readFile(path.resolve(__dirname, currentFilePath)),
+    readFile(path.resolve(__dirname, baselineFilePath)),
+  ]);
+  const baselineObject = xmlParser.parse(baselineText);
+  const currentObject = xmlParser.parse(currentText);
+  compareXmlObject(baselineObject, currentObject, fragileAttributeTree);
+}
+
 describe('playwright trx reporter', () => {
   it('must match the base line', async () => {
-    const [baselineText, currentText] = await Promise.all([
-      readFile(path.resolve(__dirname, 'baseline.trx')),
-      readFile(path.resolve(__dirname, '..', 'playwright-test-reports', 'trxForm.trx')),
-    ]);
-    const baselineObject = xmlParser.parse(baselineText);
-    const currentObject = xmlParser.parse(currentText);
-    compareXmlObject(baselineObject, currentObject, fragileAttributeTree);
+    const trxFoder = path.resolve(__dirname, '../', 'playwright-test-reports');
+    const files = await readdir(trxFoder);
+    const tasks = files.map(file => { 
+      if (!file.endsWith('trx')) return;
+      assertBaselineIsEqual(file);
+    });
+    await Promise.all(tasks);
   });
 });
