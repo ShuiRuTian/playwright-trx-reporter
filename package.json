@@ -17,12 +17,13 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "npx playwright install && npx playwright test",
-    "test:ci": "cross-env CI=1 npm run test",
-    "test:local": "cross-env CI=1 npm run test"
+    "test:playwright-single-trx": "npx playwright install && npx playwright test --config=./playwright.singleTrx.config.ts",
+    "test:playwright-multi-trx": "npx playwright install && npx playwright test --config=./playwright.multiTrx.config.ts",
+    "test:playwright-generate-trx": "npx test:playwright-single-trx && test:playwright-multi-trx",
+    "test:jest": "npx jest"
   },
   "devDependencies": {
-    "@playwright/test": "^1.25.1",
+    "@playwright/test": "^1.30.0",
     "@tsconfig/recommended": "^1.0.2",
     "@types/jest": "^29.4.0",
     "@types/jsdom": "^20.0.1",

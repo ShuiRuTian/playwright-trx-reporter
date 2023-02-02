@@ -1,5 +1,5 @@
 import os from 'os';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 import { IDSimpleType } from './trxModel';
 

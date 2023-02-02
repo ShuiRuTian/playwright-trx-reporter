@@ -2,7 +2,6 @@
 import type { FullConfig, FullResult, Reporter, Suite } from '@playwright/test/reporter';
 import path from 'path';
 import { promises as fsPromises } from 'fs';
-import { TestRunBuilder } from './TestRunBuilder';
 import { serialize2Xml } from './serialization';
 import { createUuid, runUser } from './utils';
 import { MultiTrxsBuilder, SingleTrxBuilder } from './trxWriter';
@@ -131,8 +130,10 @@ function getFilePath(info: OutputFileInfo, index: number): string | undefined{
     case typeof info === 'string':
       return info as string;
     // multi file output
-    case typeof info === 'object':
-      return (info as OutputFilesInfo).folder + (info as OutputFilesInfo).prefirx;
+    case typeof info === 'object': { 
+      const { folder, prefirx } = info as OutputFilesInfo;
+      return path.resolve(folder, `${prefirx}_${index}.trx`);
+    }
     // console output
     case typeof info === 'undefined':
       return undefined;
