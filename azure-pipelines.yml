@@ -32,3 +32,4 @@ steps:
   inputs:
     testResultsFiles: '**/*.trx'
     testResultsFormat: 'VSTest'
+    failTaskOnFailedTests: true
