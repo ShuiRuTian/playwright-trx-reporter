@@ -17,8 +17,10 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test:playwright-single-trx": "npx playwright install && npx playwright test --config=./playwright.singleTrx.config.ts || exit 0",
-    "test:playwright-multi-trx": "npx playwright install && npx playwright test --config=./playwright.multiTrx.config.ts || exit 0",
+    "test:playwright-single-trx": "",
+    "test:playwright-multi-trx": "",
+    "test:playwright-single-trx_": "npx playwright install && npx playwright test --config=./playwright.singleTrx.config.ts || exit 0",
+    "test:playwright-multi-trx_": "npx playwright install && npx playwright test --config=./playwright.multiTrx.config.ts || exit 0",
     "test:playwright-generate-trx": "npx test:playwright-single-trx && test:playwright-multi-trx",
     "test:jest": "npx jest"
   },

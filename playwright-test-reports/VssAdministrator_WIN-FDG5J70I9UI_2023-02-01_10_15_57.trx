@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="40aa7a86-c8ad-495d-86e8-ff063a11fedd" name="VssAdministrator@WIN-FDG5J70I9UI 2023-02-01 10:15:57" runUser="WIN-FDG5J70I9UI\VssAdministrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2023-02-01T10:15:57.0205180+00:00" queuing="2023-02-01T10:15:57.0205180+00:00" start="2023-02-01T10:15:53.3142247+00:00" finish="2023-02-01T10:15:57.0986911+00:00" />
+  <TestSettings name="default" id="163fb4a2-d16b-4484-b10d-e958ac318dcf">
+    <Deployment runDeploymentRoot="VssAdministrator_WIN-FDG5J70I9UI_2023-02-01_10_15_57" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="69077c7f-6bee-446a-9af5-b5d3748de3aa" testId="bb0ba359-4b58-2c52-4018-b3b5161e6315" testName="XunitTestExample.UnitTest1.SuccessCase3" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0000482" startTime="2023-02-01T10:15:56.7869595+00:00" endTime="2023-02-01T10:15:56.7869597+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="69077c7f-6bee-446a-9af5-b5d3748de3aa" />
+    <UnitTestResult executionId="2fa5b38d-6ab8-4be6-a4f6-83385fbf2615" testId="1d7d330b-edd5-a417-d4d5-1e2a0309c689" testName="XunitTestExample.UnitTest1.FailCase2" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0386533" startTime="2023-02-01T10:15:56.7800340+00:00" endTime="2023-02-01T10:15:56.7800342+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fa5b38d-6ab8-4be6-a4f6-83385fbf2615">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : Fail case 2</Message>
+          <StackTrace>   at XunitTestExample.UnitTest1.FailCase2() in D:\a\1\s\XunitTestExample\UnitTest1.cs:line 48</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3a06604a-e1ee-41e5-96e8-95be7d7c5ec5" testId="6050289a-fcc7-42b8-5227-afb8aded63ed" testName="XunitTestExample.UnitTest1.FailCase1" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0004915" startTime="2023-02-01T10:15:56.7849335+00:00" endTime="2023-02-01T10:15:56.7849337+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a06604a-e1ee-41e5-96e8-95be7d7c5ec5">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NotImplementedException : Fail case 1</Message>
+          <StackTrace>   at XunitTestExample.UnitTest1.FailCase1() in D:\a\1\s\XunitTestExample\UnitTest1.cs:line 42</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6a0ded6b-0cef-4c35-a512-46763cb32e63" testId="61dfe752-862a-b48c-b550-8e49d3425cdf" testName="XunitTestExample.UnitTest1.SuccessCase5" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0000388" startTime="2023-02-01T10:15:56.6809884+00:00" endTime="2023-02-01T10:15:56.6809885+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a0ded6b-0cef-4c35-a512-46763cb32e63" />
+    <UnitTestResult executionId="23d02e62-a47a-4945-9da6-fada10043795" testId="c6ef8e8b-8032-7498-f441-922a825043bc" testName="XunitTestExample.UnitTest1.SuccessCase4" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0000337" startTime="2023-02-01T10:15:56.7927590+00:00" endTime="2023-02-01T10:15:56.7927591+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23d02e62-a47a-4945-9da6-fada10043795" />
+    <UnitTestResult executionId="690795db-ec5b-49be-83ff-e30e7f7bac6b" testId="b436e839-418b-7fa9-c36c-fbd4cc6d554a" testName="XunitTestExample.UnitTest1.SuccessCase2" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0000346" startTime="2023-02-01T10:15:56.7886658+00:00" endTime="2023-02-01T10:15:56.7886659+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="690795db-ec5b-49be-83ff-e30e7f7bac6b" />
+    <UnitTestResult executionId="3ab929f5-cd91-4b55-86b4-4b1f78e47181" testId="bdde413d-8269-e38a-6f11-416488d7e032" testName="XunitTestExample.UnitTest1.SuccessCase1" computerName="WIN-FDG5J70I9UI" duration="00:00:00.0030553" startTime="2023-02-01T10:15:56.6419968+00:00" endTime="2023-02-01T10:15:56.6421047+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ab929f5-cd91-4b55-86b4-4b1f78e47181" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="XunitTestExample.UnitTest1.FailCase1" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="6050289a-fcc7-42b8-5227-afb8aded63ed">
+      <Execution id="3a06604a-e1ee-41e5-96e8-95be7d7c5ec5" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="FailCase1" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.FailCase2" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="1d7d330b-edd5-a417-d4d5-1e2a0309c689">
+      <Execution id="2fa5b38d-6ab8-4be6-a4f6-83385fbf2615" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="FailCase2" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.SuccessCase2" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="b436e839-418b-7fa9-c36c-fbd4cc6d554a">
+      <Execution id="690795db-ec5b-49be-83ff-e30e7f7bac6b" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="SuccessCase2" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.SuccessCase5" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="61dfe752-862a-b48c-b550-8e49d3425cdf">
+      <Execution id="6a0ded6b-0cef-4c35-a512-46763cb32e63" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="SuccessCase5" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.SuccessCase4" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="c6ef8e8b-8032-7498-f441-922a825043bc">
+      <Execution id="23d02e62-a47a-4945-9da6-fada10043795" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="SuccessCase4" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.SuccessCase3" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="bb0ba359-4b58-2c52-4018-b3b5161e6315">
+      <Execution id="69077c7f-6bee-446a-9af5-b5d3748de3aa" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="SuccessCase3" />
+    </UnitTest>
+    <UnitTest name="XunitTestExample.UnitTest1.SuccessCase1" storage="d:\a\1\s\xunittestexample\bin\release\net6.0\xunittestexample.dll" id="bdde413d-8269-e38a-6f11-416488d7e032">
+      <Execution id="3ab929f5-cd91-4b55-86b4-4b1f78e47181" />
+      <TestMethod codeBase="D:\a\1\s\XunitTestExample\bin\Release\net6.0\XunitTestExample.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="XunitTestExample.UnitTest1" name="SuccessCase1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="bb0ba359-4b58-2c52-4018-b3b5161e6315" executionId="69077c7f-6bee-446a-9af5-b5d3748de3aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d7d330b-edd5-a417-d4d5-1e2a0309c689" executionId="2fa5b38d-6ab8-4be6-a4f6-83385fbf2615" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6050289a-fcc7-42b8-5227-afb8aded63ed" executionId="3a06604a-e1ee-41e5-96e8-95be7d7c5ec5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="61dfe752-862a-b48c-b550-8e49d3425cdf" executionId="6a0ded6b-0cef-4c35-a512-46763cb32e63" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6ef8e8b-8032-7498-f441-922a825043bc" executionId="23d02e62-a47a-4945-9da6-fada10043795" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b436e839-418b-7fa9-c36c-fbd4cc6d554a" executionId="690795db-ec5b-49be-83ff-e30e7f7bac6b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdde413d-8269-e38a-6f11-416488d7e032" executionId="3ab929f5-cd91-4b55-86b4-4b1f78e47181" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="7" executed="7" passed="5" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.3+1b45f5407b (64-bit .NET 6.0.13)&#xD;
+[xUnit.net 00:00:00.71]   Starting:    XunitTestExample&#xD;
+[xUnit.net 00:00:00.98]       System.NotImplementedException : Fail case 2&#xD;
+[xUnit.net 00:00:00.98]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.99]         D:\a\1\s\XunitTestExample\UnitTest1.cs(48,0): at XunitTestExample.UnitTest1.FailCase2()&#xD;
+[xUnit.net 00:00:00.99]       System.NotImplementedException : Fail case 1&#xD;
+[xUnit.net 00:00:00.99]       Stack Trace:&#xD;
+[xUnit.net 00:00:00.99]         D:\a\1\s\XunitTestExample\UnitTest1.cs(42,0): at XunitTestExample.UnitTest1.FailCase1()&#xD;
+[xUnit.net 00:00:01.00]   Finished:    XunitTestExample&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="WIN-FDG5J70I9UI" outcome="Error" timestamp="2023-02-01T10:15:56.7705208+00:00">
+        <Text>[xUnit.net 00:00:00.98]     XunitTestExample.UnitTest1.FailCase2 [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="WIN-FDG5J70I9UI" outcome="Error" timestamp="2023-02-01T10:15:56.7705208+00:00">
+        <Text>[xUnit.net 00:00:00.99]     XunitTestExample.UnitTest1.FailCase1 [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

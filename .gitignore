@@ -1,6 +1,5 @@
 node_modules
 /test-results/
 /playwright-report/
-/playwright-test-reports/
 /playwright/.cache/
 dist
