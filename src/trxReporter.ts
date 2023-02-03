@@ -35,6 +35,11 @@ export interface TrxReporterOptions {
    * @default "priority"
    */
   priorityAnnotation?: string;
+
+  /**
+   * @default false
+   */
+  verbose?: boolean;
 }
 
 const outputFileEnv = 'PLAYWRIGHT_TRX_OUTPUT_NAME';
@@ -55,6 +60,8 @@ export class TrxReporter implements Reporter {
 
   private totalTestCount!: number;
 
+  private verbose = false;
+
   private ownerAnnotation: string;
 
   private priorityAnnotation: string;
@@ -64,6 +71,7 @@ export class TrxReporter implements Reporter {
     this.outputFileInfo = outputFilePath ?? options.outputFile;
     this.ownerAnnotation = options.ownerAnnotation ?? 'owner';
     this.priorityAnnotation = options.priorityAnnotation ?? 'priority';
+    this.verbose = options.verbose ?? false;
   }
 
   log(str: string) {
@@ -115,6 +123,9 @@ export class TrxReporter implements Reporter {
       if (outputFile) {
         await fsPromises.mkdir(path.dirname(outputFile), { recursive: true });
         await fsPromises.writeFile(outputFile, reportString);
+        if (this.verbose) {
+          console.log(logPrefix + ' writing file to ' + outputFile);
+        }
       } else {
         console.log(reportString);
       }

@@ -31,7 +31,7 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFiles: '**/*.trx'
+    testResultsFiles: '**/playwright-test-reports/*.trx'
     testResultsFormat: 'VSTest'
     failTaskOnFailedTests: true
     mergeTestResults: true

@@ -16,7 +16,8 @@ const config: PlaywrightTestConfig = {
   // reporter: 'junit',
   reporter: [
     ['./index.ts', {
-      outputFile: "./playwright-test-reports/trxForm.trx"
+      outputFile: "./playwright-test-reports/trxForm.trx",
+      verbose: true,
     }],
   ],
 };
