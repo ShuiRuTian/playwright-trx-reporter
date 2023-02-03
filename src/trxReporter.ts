@@ -109,7 +109,6 @@ export class TrxReporter implements Reporter {
         startTime: this.startTimeDate.toISOString(),
         endTime: endTime.toISOString(),
         runUser: finalRunUser,
-        pwSummaryOutcome: result.status,
       },
     });
 
