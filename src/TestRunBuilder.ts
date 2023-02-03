@@ -16,7 +16,6 @@ export interface TestRunBuilderOptions {
   runUser: string;
   startTime: string;
   endTime: string;
-  pwSummaryOutcome: FullResult['status'];
 }
 
 export interface AddTestResultOptions {
@@ -30,6 +29,14 @@ export interface AddTestResultOptions {
      */
     className: string;
   }
+}
+
+function createResultSummaryByCounters(counter: CountersType) { 
+  const $outcome = counter.$total === counter.$passed ? 'Passed' : 'Failed';
+  return new ResultSummary({
+    $outcome,
+    Counters:counter,
+  });
 }
 
 /**
@@ -46,19 +53,16 @@ export class TestRunBuilder {
 
   private _TestLists: { TestList: TestListType[] };
 
-  private _ResultSummary: ResultSummary;
+  private _Counters: CountersType;
 
   private _Times: Times;
 
   private _isBuilt = false;
 
   constructor(options: TestRunBuilderOptions) {
-    const { id, name, runUser, pwSummaryOutcome: summaryOutcome, endTime, startTime } = options;
+    const { id, name, runUser, endTime, startTime } = options;
     this._testRun = new TestRunType({ $id: id, $name: name, $runUser: runUser });
-    this._ResultSummary = new ResultSummary({
-      $outcome: this.getTrxSummaryOutCome(summaryOutcome),
-      Counters: new CountersType(),
-    });
+    this._Counters = new CountersType();
     this._Results = new ResultsType({ UnitTestResult: [] });
     this._TestDefinitions = new TestDefinitionType({ UnitTest: [] });
     this._TestEntries = new TestEntriesType({ TestEntry: [] });
@@ -119,45 +123,30 @@ export class TestRunBuilder {
   }
 
   private count(outCome: string | undefined) {
-    this._ResultSummary.Counters.$total += 1;
+    this._Counters.$total += 1;
 
     switch (outCome) {
       case TestOutcome.Aborted:
-        this._ResultSummary.Counters.$aborted += 1;
+        this._Counters.$aborted += 1;
         break;
       case TestOutcome.Inconclusive:
-        this._ResultSummary.Counters.$executed += 1;
-        this._ResultSummary.Counters.$inconclusive += 1;
+        this._Counters.$executed += 1;
+        this._Counters.$inconclusive += 1;
         break;
       case TestOutcome.Failed:
-        this._ResultSummary.Counters.$executed += 1;
-        this._ResultSummary.Counters.$failed += 1;
+        this._Counters.$executed += 1;
+        this._Counters.$failed += 1;
         break;
       case TestOutcome.Passed:
-        this._ResultSummary.Counters.$executed += 1;
-        this._ResultSummary.Counters.$passed += 1;
+        this._Counters.$executed += 1;
+        this._Counters.$passed += 1;
         break;
       case TestOutcome.Timeout:
-        this._ResultSummary.Counters.$executed += 1;
-        this._ResultSummary.Counters.$timeout += 1;
+        this._Counters.$executed += 1;
+        this._Counters.$timeout += 1;
         break;
       case TestOutcome.NotExecuted:
-        this._ResultSummary.Counters.$notExecuted += 1;
-    }
-  }
-
-  private getTrxSummaryOutCome(outcome: FullResult['status']) {
-    switch (outcome) {
-      case 'failed':
-        return TestOutcome.Failed;
-      case 'interrupted':
-        return TestOutcome.Aborted;
-      case 'passed':
-        return TestOutcome.Passed;
-      case 'timedout':
-        return TestOutcome.Timeout;
-      default:
-        assertNever(outcome);
+        this._Counters.$notExecuted += 1;
     }
   }
 
@@ -165,7 +154,7 @@ export class TestRunBuilder {
     if (this._isBuilt)
       assert("'TestRunBuilder' should not call `build` twice.");
     this._isBuilt = true;
-    this._testRun.ResultSummary = this._ResultSummary;
+    this._testRun.ResultSummary = createResultSummaryByCounters(this._Counters);
     this._testRun.Results = this._Results;
     this._testRun.TestDefinitions = this._TestDefinitions;
     this._testRun.TestEntries = this._TestEntries;
