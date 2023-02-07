@@ -19,7 +19,8 @@ const config: PlaywrightTestConfig = {
       outputFile: {
         folder: "./playwright-test-reports",
         prefirx: "trxFrom",
-      }
+      },
+      verbose: true,
     }],
   ],
 };

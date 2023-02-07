@@ -291,18 +291,17 @@ export class TestRunType {
   private readonly $xmlns?: string = 'http://microsoft.com/schemas/VisualStudio/TeamTest/2010';
 
   //   $tcmPassId?: number;
+  Times?: Times;
+
+  Results?: ResultsType;
 
   TestDefinitions?: TestDefinitionType;
+
+  TestEntries?: TestEntriesType;
 
   TestLists?: {
     TestList?: TestListType[];
   };
-
-  TestEntries?: TestEntriesType;
-
-  Times?: Times;
-
-  Results?: ResultsType;
 
   ResultSummary?: ResultSummary;
 
@@ -334,9 +333,13 @@ export enum TestOutcome {
 export class CountersType {
   $total = 0;
 
-  $error = 0;
+  $executed = 0;
+
+  $passed = 0;
 
   $failed = 0;
+
+  $error = 0;
 
   $timeout = 0;
 
@@ -350,13 +353,9 @@ export class CountersType {
 
   $notExecuted = 0;
 
-  $executed = 0;
-
   $disconnected = 0;
 
   $warning = 0;
-
-  $passed = 0;
 
   $completed = 0;
 

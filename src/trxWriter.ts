@@ -196,14 +196,12 @@ function getFromAnnotationByType(annotations: TestCase['annotations'], type: str
   }
 }
 
-function createDummyTestRunBuilderOption(): TestRunBuilderOptions {
+function createDummyTestRunBuilderOption(options:TestRunBuilderOptions): TestRunBuilderOptions {
   return {
+    ...options,
     id: createUuid(),
-    name: 'dummy name',
     startTime: (new Date()).toISOString(),
     endTime: (new Date()).toISOString(),
-    runUser: 'dummy runUser',
-    pwSummaryOutcome: 'passed',
   };
 }
 
@@ -236,7 +234,7 @@ class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder {
 
   getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder {
     if (!this._builders[testResultIndex]) {
-      const finalOption = testResultIndex === 0 ? this._options : createDummyTestRunBuilderOption();
+      const finalOption = testResultIndex === 0 ? this._options : createDummyTestRunBuilderOption(this._options);
       const newBuilder: TestRunBuilder = new TestRunBuilder(finalOption);
       this._builders[testResultIndex] = newBuilder;
     }
