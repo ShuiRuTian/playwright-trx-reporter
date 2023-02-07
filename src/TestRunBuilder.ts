@@ -31,11 +31,11 @@ export interface AddTestResultOptions {
   }
 }
 
-function createResultSummaryByCounters(counter: CountersType) { 
+function createResultSummaryByCounters(counter: CountersType) {
   const $outcome = counter.$total === counter.$passed ? 'Passed' : 'Failed';
   return new ResultSummary({
     $outcome,
-    Counters:counter,
+    Counters: counter,
   });
 }
 
@@ -133,17 +133,14 @@ export class TestRunBuilder {
         this._Counters.$executed += 1;
         this._Counters.$inconclusive += 1;
         break;
-      case TestOutcome.Failed:
+        case TestOutcome.Timeout: // Intentional, MSTest(C#) handles `timeout` as `failed`.
+        case TestOutcome.Failed:
         this._Counters.$executed += 1;
         this._Counters.$failed += 1;
         break;
       case TestOutcome.Passed:
         this._Counters.$executed += 1;
         this._Counters.$passed += 1;
-        break;
-      case TestOutcome.Timeout:
-        this._Counters.$executed += 1;
-        this._Counters.$timeout += 1;
         break;
       case TestOutcome.NotExecuted:
         this._Counters.$notExecuted += 1;

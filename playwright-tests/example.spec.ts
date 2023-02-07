@@ -27,7 +27,7 @@ test('trx-priority', async ({ page }) => {
 
 test('trx-exception', async ({ page }) => {
   test.fail();
-  throw new Error();
+  throw new Error("Error message from 'trx-exception'");
 });
 
 test('trx-retry-when-failed', async ({ page }, testInfo) => {
