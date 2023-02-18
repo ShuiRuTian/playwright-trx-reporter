@@ -133,8 +133,8 @@ function bindOutput(unitTestResult: UnitTestResultType, test: TestCase, result: 
   const stdOutString = getStringFromStdStream(result.stdout);
   const stdErrString = getStringFromStdStream(result.stderr);
   const errorInfo: OutputType['ErrorInfo'] = (errorInfoMessage || errorInfoStackTrace) ? {
-    StackTrace: errorInfoStackTrace,
     Message: errorInfoMessage,
+    StackTrace: errorInfoStackTrace,
   } : undefined;
   if (stdOutString || stdErrString || errorInfo) {
     unitTestResult.Output = {
