@@ -172,14 +172,14 @@ function getStringFromStdStream(stdStream: (string | Buffer)[]) {
 
 function pwOutcome2TrxOutcome(outcome: TestStatus) {
   switch (outcome) {
+    // Intentional, Azure DevOps Pipeline handle "Timeout" test cases into "Other" category.
+    case 'timedOut':
     case 'failed':
       return TestOutcome.Failed;
     case 'interrupted':
       return TestOutcome.Aborted;
     case 'passed':
       return TestOutcome.Passed;
-    case 'timedOut':
-      return TestOutcome.Timeout;
     case 'skipped':
       return TestOutcome.NotExecuted;
     default:

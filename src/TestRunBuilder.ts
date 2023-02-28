@@ -73,7 +73,7 @@ export class TestRunBuilder {
       ],
     };
     this._Times = new Times({
-      $creation: startTime,
+      $start: startTime,
       $finish: endTime,
     });
   }
@@ -133,8 +133,10 @@ export class TestRunBuilder {
         this._Counters.$executed += 1;
         this._Counters.$inconclusive += 1;
         break;
-        case TestOutcome.Timeout: // Intentional, MSTest(C#) handles `timeout` as `failed`.
-        case TestOutcome.Failed:
+      // Intentional, Azure DevOps Pipeline handle "Timeout" test cases into "Other" category.
+      // And MSTest(C#) handles`timeout` as `failed` too.
+      case TestOutcome.Timeout: 
+      case TestOutcome.Failed:
         this._Counters.$executed += 1;
         this._Counters.$failed += 1;
         break;

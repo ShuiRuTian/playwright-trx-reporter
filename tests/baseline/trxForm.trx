@@ -1,4 +1,144 @@
-<TestRun id="4f22bb5f-1f26-442e-bb7a-f4b3469f879e" name="MININT-JGGQRNR\songgao 2023-02-02T11:28:02.081Z" runUser="MININT-JGGQRNR\songgao" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="aa1af4fc-b347-4c47-8eda-c31697cfe728" name="MININT-JGGQRNR\songgao 2023-02-28T12:07:19.400Z" runUser="MININT-JGGQRNR\songgao" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<Times start="2023-02-28T12:07:19.400Z" finish="2023-02-28T12:07:35.425Z"/>
+<Results>
+<UnitTestResult testName="trx-owner" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="f15c8d56-8a11-4128-9717-99568f35875e" outcome="Passed" startTime="2023-02-28T12:07:20.619Z" endTime="2023-02-28T12:07:21.246Z" duration="00:00:00.627"/>
+<UnitTestResult testName="trx-priority" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="04568db8-8468-57c2-9447-9f9bfec179a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="a7333b89-5a12-4333-aac9-b510685e0fc3" outcome="Passed" startTime="2023-02-28T12:07:22.908Z" endTime="2023-02-28T12:07:23.315Z" duration="00:00:00.407"/>
+<UnitTestResult testName="trx-exception" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="2b432b8a-f7c4-4f07-93e8-755c7493d338" outcome="Failed" startTime="2023-02-28T12:07:23.317Z" endTime="2023-02-28T12:07:23.738Z" duration="00:00:00.421">
+<Output>
+<ErrorInfo>
+<Message>
+<![CDATA[Error: Error message from 'trx-exception']]>
+</Message>
+<StackTrace>
+<![CDATA[
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:30:9]]>
+</StackTrace>
+</ErrorInfo>
+</Output>
+</UnitTestResult>
+<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="cf106483-0fa3-4c6c-8a46-cea6300d7fde" outcome="Failed" startTime="2023-02-28T12:07:23.739Z" endTime="2023-02-28T12:07:24.192Z" duration="00:00:00.453">
+<Output>
+<ErrorInfo>
+<Message>
+<![CDATA[Error: ]]>
+</Message>
+<StackTrace>
+<![CDATA[
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:35:11]]>
+</StackTrace>
+</ErrorInfo>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="dea051a3-7f6a-4fc5-95aa-6fb843d8a3af" outcome="Passed" startTime="2023-02-28T12:07:24.878Z" endTime="2023-02-28T12:07:25.331Z" duration="00:00:00.453"/>
+<UnitTestResult testName="trx-stdout" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="18225929-31e3-52ff-a669-7df9fe804a08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="7b1acc40-08b5-4555-9839-2261c7b8dca8" outcome="Passed" startTime="2023-02-28T12:07:26.409Z" endTime="2023-02-28T12:07:26.780Z" duration="00:00:00.371">
+<Output>
+<StdOut>
+<![CDATA[output to std out stream
+]]>
+</StdOut>
+</Output>
+</UnitTestResult>
+<UnitTestResult testName="trx-stderr" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="cca2f8f2-edb4-44f1-97a2-81e2eb442b84" outcome="Passed" startTime="2023-02-28T12:07:26.782Z" endTime="2023-02-28T12:07:27.166Z" duration="00:00:00.384">
+<Output>
+<StdErr>
+<![CDATA[output to std err stream
+]]>
+</StdErr>
+</Output>
+</UnitTestResult>
+<UnitTestResult testName="trx-attachment-text" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="4c0796e9-d84a-46f2-8d16-1143ffd964cd" outcome="Passed" startTime="2023-02-28T12:07:27.168Z" endTime="2023-02-28T12:07:27.637Z" duration="00:00:00.469">
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-text-chromium\attachments\text-attachment-d1acfa6312f42e80e95cf958223fc9a597628d00.txt"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-attachment-png" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c0e565df-9e66-570f-8028-927454205bcd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="cf6a8736-0db6-44e4-8510-748ccbc2a552" outcome="Passed" startTime="2023-02-28T12:07:27.639Z" endTime="2023-02-28T12:07:28.008Z" duration="00:00:00.369">
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-png-chromium\attachments\text-attachment-27d28f0ecc04dc78df90877641490bf7b6fae518.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="2429f780-5bc5-4874-b2cf-9cea0ddeb668" outcome="Failed" startTime="2023-02-28T12:07:28.010Z" endTime="2023-02-28T12:07:28.310Z" duration="00:00:00.300">
+<Output>
+<StdOut>
+<![CDATA[[out-of-time]: log
+]]>
+</StdOut>
+<StdErr>
+<![CDATA[[out-of-time]: error
+]]>
+</StdErr>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="2eb257e3-5bb4-44db-96bc-e61174b83019" outcome="Failed" startTime="2023-02-28T12:07:29.094Z" endTime="2023-02-28T12:07:29.462Z" duration="00:00:00.368">
+<Output>
+<StdOut>
+<![CDATA[[out-of-time]: log
+]]>
+</StdOut>
+<StdErr>
+<![CDATA[[out-of-time]: error
+]]>
+</StdErr>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-out-of-time-with-web" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="819f77c0-de89-4b64-9604-27cdbdb3bf33" outcome="Failed" startTime="2023-02-28T12:07:31.050Z" endTime="2023-02-28T12:07:31.560Z" duration="00:00:00.510">
+<Output>
+<ErrorInfo>
+<Message>
+<![CDATA[page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+=========================== logs ===========================
+navigating to "www.baidu.com", waiting until "load"
+============================================================]]>
+</Message>
+<StackTrace>
+<![CDATA[
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:68:14]]>
+</StackTrace>
+</ErrorInfo>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="trx-out-of-time-with-web" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="9a9fd690-3b92-41a4-ad33-545f438b2793" outcome="Failed" startTime="2023-02-28T12:07:33.193Z" endTime="2023-02-28T12:07:33.703Z" duration="00:00:00.510">
+<Output>
+<ErrorInfo>
+<Message>
+<![CDATA[page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+=========================== logs ===========================
+navigating to "www.baidu.com", waiting until "load"
+============================================================]]>
+</Message>
+<StackTrace>
+<![CDATA[
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:68:14]]>
+</StackTrace>
+</ErrorInfo>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
+<UnitTestResult testName="auto" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="8854bcc7-bfbe-45de-acad-2e2f616f5f4f" outcome="Passed" startTime="2023-02-28T12:07:35.396Z" endTime="2023-02-28T12:07:35.408Z" duration="00:00:00.012"/>
+</Results>
 <TestDefinitions>
 <UnitTest id="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" name="trx-owner" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
 <Owners>
@@ -30,6 +170,9 @@
 <UnitTest id="81fa697e-f6ee-5542-b2f8-c13837512c20" name="trx-out-of-time" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
 <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-out-of-time"/>
 </UnitTest>
+<UnitTest id="490d4ceb-6fed-5415-ba29-85d07d42ba27" name="trx-out-of-time-with-web" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-out-of-time-with-web"/>
+</UnitTest>
 <UnitTest id="2c91d602-0f17-5c1e-9936-9b0ef9c51917" name="auto" priority="5" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
 <Owners>
 <Owner name="Someone"/>
@@ -37,100 +180,27 @@
 <TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="auto"/>
 </UnitTest>
 </TestDefinitions>
+<TestEntries>
+<TestEntry testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" executionId="f15c8d56-8a11-4128-9717-99568f35875e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="04568db8-8468-57c2-9447-9f9bfec179a5" executionId="a7333b89-5a12-4333-aac9-b510685e0fc3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" executionId="2b432b8a-f7c4-4f07-93e8-755c7493d338" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="cf106483-0fa3-4c6c-8a46-cea6300d7fde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="dea051a3-7f6a-4fc5-95aa-6fb843d8a3af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="18225929-31e3-52ff-a669-7df9fe804a08" executionId="7b1acc40-08b5-4555-9839-2261c7b8dca8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" executionId="cca2f8f2-edb4-44f1-97a2-81e2eb442b84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" executionId="4c0796e9-d84a-46f2-8d16-1143ffd964cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="c0e565df-9e66-570f-8028-927454205bcd" executionId="cf6a8736-0db6-44e4-8510-748ccbc2a552" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="2429f780-5bc5-4874-b2cf-9cea0ddeb668" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="2eb257e3-5bb4-44db-96bc-e61174b83019" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" executionId="819f77c0-de89-4b64-9604-27cdbdb3bf33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" executionId="9a9fd690-3b92-41a4-ad33-545f438b2793" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" executionId="8854bcc7-bfbe-45de-acad-2e2f616f5f4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+</TestEntries>
 <TestLists>
 <TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List"/>
 <TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results"/>
 </TestLists>
-<TestEntries>
-<TestEntry testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" executionId="2f6dff8d-0993-43e1-89ae-c788b240d353" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="04568db8-8468-57c2-9447-9f9bfec179a5" executionId="93b0e3f2-84d1-4e11-b369-b0f3619d8f09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" executionId="f243b1e8-ef19-4a96-ab7e-68e4e1fff664" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="496abc9d-ab41-4ab3-b823-1acf71e9e427" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="afe15d7f-d0e5-4c81-81db-2a1aa36c915d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="18225929-31e3-52ff-a669-7df9fe804a08" executionId="6f3c7625-ac47-4193-8f46-771fb177f767" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" executionId="21788887-e2d7-4137-92be-15d07f6d9b3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" executionId="219ef51e-2b78-4c2f-b763-1a3d4474cd42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="c0e565df-9e66-570f-8028-927454205bcd" executionId="787fd69b-4324-414e-a5b6-8c56ecc85f56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="b4b69980-8e25-465a-9306-2028db248673" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" executionId="777e5e81-67c7-4a01-9cb0-d107c68f3a72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-</TestEntries>
-<Times creation="2023-02-02T11:28:02.081Z" finish="2023-02-02T11:28:08.447Z"/>
-<Results>
-<UnitTestResult testName="trx-owner" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="9d791c3d-6695-5db3-a9b4-a3b0c6eed934" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="2f6dff8d-0993-43e1-89ae-c788b240d353" outcome="Passed" startTime="2023-02-02T11:28:02.854Z" endTime="2023-02-02T11:28:03.309Z" duration="00:00:00.455"/>
-<UnitTestResult testName="trx-priority" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="04568db8-8468-57c2-9447-9f9bfec179a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="93b0e3f2-84d1-4e11-b369-b0f3619d8f09" outcome="Passed" startTime="2023-02-02T11:28:04.071Z" endTime="2023-02-02T11:28:04.433Z" duration="00:00:00.362"/>
-<UnitTestResult testName="trx-exception" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="01ce8f93-9bd0-5008-82dc-83ea6db527b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="f243b1e8-ef19-4a96-ab7e-68e4e1fff664" outcome="Failed" startTime="2023-02-02T11:28:04.434Z" endTime="2023-02-02T11:28:04.728Z" duration="00:00:00.294">
-<Output>
-<ErrorInfo>
-<StackTrace>
-<![CDATA[
-    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:30:9]]>
-</StackTrace>
-<Message>
-<![CDATA[Error: ]]>
-</Message>
-</ErrorInfo>
-</Output>
-</UnitTestResult>
-<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="496abc9d-ab41-4ab3-b823-1acf71e9e427" outcome="Failed" startTime="2023-02-02T11:28:04.730Z" endTime="2023-02-02T11:28:05.053Z" duration="00:00:00.323">
-<Output>
-<ErrorInfo>
-<StackTrace>
-<![CDATA[
-    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:35:11]]>
-</StackTrace>
-<Message>
-<![CDATA[Error: ]]>
-</Message>
-</ErrorInfo>
-</Output>
-<ResultFiles>
-<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\video.webm"/>
-<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\trace.zip"/>
-<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-retry-when-failed-chromium\test-failed-1.png"/>
-</ResultFiles>
-</UnitTestResult>
-<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="afe15d7f-d0e5-4c81-81db-2a1aa36c915d" outcome="Passed" startTime="2023-02-02T11:28:05.657Z" endTime="2023-02-02T11:28:06.007Z" duration="00:00:00.350"/>
-<UnitTestResult testName="trx-stdout" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="18225929-31e3-52ff-a669-7df9fe804a08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="6f3c7625-ac47-4193-8f46-771fb177f767" outcome="Passed" startTime="2023-02-02T11:28:06.737Z" endTime="2023-02-02T11:28:07.102Z" duration="00:00:00.365">
-<Output>
-<StdOut>
-<![CDATA[output to std out stream
-]]>
-</StdOut>
-</Output>
-</UnitTestResult>
-<UnitTestResult testName="trx-stderr" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="32bbf147-3f79-5604-b8d9-5fdd5f912808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="21788887-e2d7-4137-92be-15d07f6d9b3c" outcome="Passed" startTime="2023-02-02T11:28:07.104Z" endTime="2023-02-02T11:28:07.544Z" duration="00:00:00.440">
-<Output>
-<StdErr>
-<![CDATA[output to std err stream
-]]>
-</StdErr>
-</Output>
-</UnitTestResult>
-<UnitTestResult testName="trx-attachment-text" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c95cc757-d94d-5cb4-bd6e-c794d1e4624e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="219ef51e-2b78-4c2f-b763-1a3d4474cd42" outcome="Passed" startTime="2023-02-02T11:28:07.545Z" endTime="2023-02-02T11:28:07.814Z" duration="00:00:00.269">
-<ResultFiles>
-<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-text-chromium\attachments\text-attachment-d1acfa6312f42e80e95cf958223fc9a597628d00.txt"/>
-</ResultFiles>
-</UnitTestResult>
-<UnitTestResult testName="trx-attachment-png" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="c0e565df-9e66-570f-8028-927454205bcd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="787fd69b-4324-414e-a5b6-8c56ecc85f56" outcome="Passed" startTime="2023-02-02T11:28:07.816Z" endTime="2023-02-02T11:28:08.099Z" duration="00:00:00.283">
-<ResultFiles>
-<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-attachment-png-chromium\attachments\text-attachment-27d28f0ecc04dc78df90877641490bf7b6fae518.png"/>
-</ResultFiles>
-</UnitTestResult>
-<UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="b4b69980-8e25-465a-9306-2028db248673" outcome="Passed" startTime="2023-02-02T11:28:08.100Z" endTime="2023-02-02T11:28:08.391Z" duration="00:00:00.291">
-<Output>
-<StdOut>
-<![CDATA[[out-of-time]: log
-]]>
-</StdOut>
-<StdErr>
-<![CDATA[[out-of-time]: error
-]]>
-</StdErr>
-</Output>
-</UnitTestResult>
-<UnitTestResult testName="auto" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="2c91d602-0f17-5c1e-9936-9b0ef9c51917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="777e5e81-67c7-4a01-9cb0-d107c68f3a72" outcome="Passed" startTime="2023-02-02T11:28:08.393Z" endTime="2023-02-02T11:28:08.395Z" duration="00:00:00.002"/>
-</Results>
-<ResultSummary outcome="Passed">
-<Counters total="11" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" executed="11" disconnected="0" warning="0" passed="9" completed="0" inProgress="0" pending="0"/>
+<ResultSummary outcome="Failed">
+<Counters total="14" executed="14" passed="8" failed="6" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0"/>
 </ResultSummary>
 </TestRun>

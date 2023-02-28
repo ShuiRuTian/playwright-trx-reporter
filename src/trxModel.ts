@@ -265,11 +265,11 @@ export class ResultsType {
 }
 
 export class Times {
-  $creation: string;
+  $creation?: string;
 
   $queuing?: string;
 
-  $start?: string;
+  $start: string;
 
   $finish?: string;
 
