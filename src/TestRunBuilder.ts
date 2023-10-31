@@ -1,7 +1,7 @@
-import type { FullResult } from '@playwright/test/reporter';
 import type { serialize2Xml } from './serialization';
 import { CountersType, IDSimpleType, ResultsType, ResultSummary, TestDefinitionType, TestEntriesType, TestEntryType, TestListType, TestOutcome, TestRunType, Times, UnitTestResultType, UnitTestType, WorkItemIDsType } from './trxModel';
-import { assert, assertNever } from './assert';
+import { assert } from './assert';
+import { NAME_SPLITTER } from './trxWriter';
 
 // Magic number
 // Copied from an existing trx file
@@ -86,7 +86,7 @@ export class TestRunBuilder {
     // add test definition
     const unitTest: UnitTestType = new UnitTestType({
       $id: testResult.$testId,
-      $name: testResult.$testName,
+      $name:  [className, testResult.$testName].join(NAME_SPLITTER),
       $priority: priority,
       $storage: fileLocation,
       Owners: owner ? {
@@ -133,8 +133,8 @@ export class TestRunBuilder {
         this._Counters.$executed += 1;
         this._Counters.$inconclusive += 1;
         break;
-        case TestOutcome.Timeout: // Intentional, MSTest(C#) handles `timeout` as `failed`.
-        case TestOutcome.Failed:
+      case TestOutcome.Timeout: // Intentional, MSTest(C#) handles `timeout` as `failed`.
+      case TestOutcome.Failed:
         this._Counters.$executed += 1;
         this._Counters.$failed += 1;
         break;

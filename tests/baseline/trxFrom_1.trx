@@ -1,24 +1,8 @@
-<TestRun id="f533f818-cef5-4d6b-97f9-bdd3adfd3cce" name="dummy name" runUser="dummy runUser" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-<TestDefinitions>
-<UnitTest id="f1fbf9d4-af2b-5277-b100-558d02b71af2" name="trx-retry-when-failed" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-retry-when-failed"/>
-</UnitTest>
-<UnitTest id="81fa697e-f6ee-5542-b2f8-c13837512c20" name="trx-out-of-time" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
-<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="trx-out-of-time"/>
-</UnitTest>
-</TestDefinitions>
-<TestLists>
-<TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List"/>
-<TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results"/>
-</TestLists>
-<TestEntries>
-<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="ce15d104-e0a6-4dfc-abbc-067b7ecfea58" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="e3d2f27d-88a8-417e-aded-03382896ea82" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
-</TestEntries>
-<Times creation="2023-02-02T07:35:48.654Z" finish="2023-02-02T07:35:48.654Z"/>
+<TestRun id="51a7c558-5983-4614-96c7-4bf7e7299204" name="MININT-JGGQRNR\songgao 2023-10-31T08:41:38.375Z" runUser="MININT-JGGQRNR\songgao" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<Times creation="2023-10-31T08:41:50.775Z" finish="2023-10-31T08:41:50.775Z"/>
 <Results>
-<UnitTestResult testName="trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="ce15d104-e0a6-4dfc-abbc-067b7ecfea58" outcome="Passed" startTime="2023-02-02T07:35:43.878Z" endTime="2023-02-02T07:35:44.242Z" duration="00:00:00.364"/>
-<UnitTestResult testName="trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="e3d2f27d-88a8-417e-aded-03382896ea82" outcome="Timeout" startTime="2023-02-02T07:35:47.089Z" endTime="2023-02-02T07:35:47.319Z" duration="00:00:00.230">
+<UnitTestResult testName="chromium &gt; example.spec.ts &gt; trx-retry-when-failed" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="09991ac3-26d4-41f6-a678-7930386e2fd1" outcome="Passed" startTime="2023-10-31T08:41:42.604Z" endTime="2023-10-31T08:41:42.972Z" duration="00:00:00.368"/>
+<UnitTestResult testName="chromium &gt; example.spec.ts &gt; trx-out-of-time" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="81fa697e-f6ee-5542-b2f8-c13837512c20" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="a821b83c-a366-4723-9cfd-469f201bd485" outcome="Timeout" startTime="2023-10-31T08:41:45.594Z" endTime="2023-10-31T08:41:45.838Z" duration="00:00:00.244">
 <Output>
 <StdOut>
 <![CDATA[[out-of-time]: log
@@ -35,8 +19,49 @@
 <ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-chromium-retry1\test-failed-1.png"/>
 </ResultFiles>
 </UnitTestResult>
+<UnitTestResult testName="chromium &gt; example.spec.ts &gt; trx-out-of-time-with-web" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" computerName="MININT-JGGQRNR" executionId="b41958a2-572c-4893-90ca-72769dfa025c" outcome="Failed" startTime="2023-10-31T08:41:48.931Z" endTime="2023-10-31T08:41:49.375Z" duration="00:00:00.444">
+<Output>
+<ErrorInfo>
+<Message>
+<![CDATA[page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+=========================== logs ===========================
+navigating to "www.baidu.com", waiting until "load"
+============================================================]]>
+</Message>
+<StackTrace>
+<![CDATA[
+    at D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts:68:14]]>
+</StackTrace>
+</ErrorInfo>
+</Output>
+<ResultFiles>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\video.webm"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\trace.zip"/>
+<ResultFile path="D:\MyRepo\trx-reporter-for-playwright\test-results\example-trx-out-of-time-with-web-chromium-retry1\test-failed-1.png"/>
+</ResultFiles>
+</UnitTestResult>
 </Results>
-<ResultSummary outcome="Passed">
-<Counters total="2" error="0" failed="0" timeout="1" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" executed="2" disconnected="0" warning="0" passed="1" completed="0" inProgress="0" pending="0"/>
+<TestDefinitions>
+<UnitTest id="f1fbf9d4-af2b-5277-b100-558d02b71af2" name="chromium &gt; example.spec.ts &gt; chromium &gt; example.spec.ts &gt; trx-retry-when-failed" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="chromium &gt; example.spec.ts &gt; trx-retry-when-failed"/>
+</UnitTest>
+<UnitTest id="81fa697e-f6ee-5542-b2f8-c13837512c20" name="chromium &gt; example.spec.ts &gt; chromium &gt; example.spec.ts &gt; trx-out-of-time" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="chromium &gt; example.spec.ts &gt; trx-out-of-time"/>
+</UnitTest>
+<UnitTest id="490d4ceb-6fed-5415-ba29-85d07d42ba27" name="chromium &gt; example.spec.ts &gt; chromium &gt; example.spec.ts &gt; trx-out-of-time-with-web" storage="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts">
+<TestMethod className="chromium &gt; example.spec.ts" codeBase="D:\MyRepo\trx-reporter-for-playwright\playwright-tests\example.spec.ts" name="chromium &gt; example.spec.ts &gt; trx-out-of-time-with-web"/>
+</UnitTest>
+</TestDefinitions>
+<TestEntries>
+<TestEntry testId="f1fbf9d4-af2b-5277-b100-558d02b71af2" executionId="09991ac3-26d4-41f6-a678-7930386e2fd1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="81fa697e-f6ee-5542-b2f8-c13837512c20" executionId="a821b83c-a366-4723-9cfd-469f201bd485" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+<TestEntry testId="490d4ceb-6fed-5415-ba29-85d07d42ba27" executionId="b41958a2-572c-4893-90ca-72769dfa025c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"/>
+</TestEntries>
+<TestLists>
+<TestList id="8c84fa94-04c1-424b-9868-57a2d4851a1d" name="Results Not in a List"/>
+<TestList id="19431567-8539-422a-85d7-44ee4e166bda" name="All Loaded Results"/>
+</TestLists>
+<ResultSummary outcome="Failed">
+<Counters total="3" executed="3" passed="1" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0"/>
 </ResultSummary>
 </TestRun>

@@ -134,7 +134,7 @@ export class TrxReporter implements Reporter {
   }
 }
 
-function getFilePath(info: OutputFileInfo, index: number): string | undefined{ 
+function getFilePath(info: OutputFileInfo, index: number): string | undefined { 
   switch (true) {
     // single file output
     case typeof info === 'string':

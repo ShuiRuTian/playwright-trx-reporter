@@ -7,6 +7,8 @@ import { assertNever } from './assert';
 import { TestRunType } from './trxModel';
 import { computerName, convertPwId2Uuid, createUuid } from './utils';
 
+export const NAME_SPLITTER = ' > ';
+
 interface TrxsBuilder {
   /**
    * Analytics the root suite of playwright. And generate trx models.
@@ -70,7 +72,7 @@ function mergeTestCase(testRunsBuilder: TestRunsBuilder, test: TestCase, options
   // TODO: use `formatTestTitle`?
   // remove root title, which is just empty
   // remove current test name
-  const classNameForJs = test.titlePath().slice(1).slice(0, -1).join(' > ');
+  const classNameForJs = test.titlePath().slice(1).slice(0, -1).join(NAME_SPLITTER);
   const owner = getFromAnnotationByType(test.annotations, ownerAnnotation);
   const priority = Number(getFromAnnotationByType(test.annotations, priorityAnnotation)) || undefined;
 
@@ -104,7 +106,7 @@ function buildTrxUnitTestResultByPwTestResult(test: TestCase, result: TestResult
     $computerName: computerName,
     $testId: convertPwId2Uuid(test.id),
     $testListId: RESULT_NOT_IN_A_LIST_ID,
-    $testName: test.title,
+    $testName: test.titlePath().slice(1).join(NAME_SPLITTER),
     $testType: UNIT_TEST_TYPE,
     $duration: formatMs2TimeSpanString(result.duration),
     $startTime: result.startTime.toISOString(),
