@@ -99,10 +99,10 @@ function equalMap(cb: Function, a: any, b: any): any {
 
 async function assertBaselineIsEqual(currentFilePath: string) {
   const baselineFileName = path.basename(currentFilePath);
-  const baselineFilePath = path.resolve('__dirname', 'baseline', baselineFileName);
+  const baselineFilePath = path.resolve(__dirname, 'baseline', baselineFileName);
   const [baselineText, currentText] = await Promise.all([
-    readFile(path.resolve(__dirname, currentFilePath)),
-    readFile(path.resolve(__dirname, baselineFilePath)),
+    readFile(currentFilePath),
+    readFile(baselineFilePath),
   ]);
   const baselineObject = xmlParser.parse(baselineText);
   const currentObject = xmlParser.parse(currentText);
@@ -115,7 +115,8 @@ describe('playwright trx reporter', () => {
     const files = await readdir(trxFoder);
     const tasks = files.map(file => { 
       if (!file.endsWith('trx')) return;
-      assertBaselineIsEqual(file);
+      const filePath = path.resolve(trxFoder, file);
+      assertBaselineIsEqual(filePath);
     });
     await Promise.all(tasks);
   });

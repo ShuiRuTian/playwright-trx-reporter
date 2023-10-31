@@ -1,6 +1,6 @@
 {
   "name": "playwright-trx-reporter",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "TRX reporter for playwright",
   "author": {
     "name": "Song Gao"
