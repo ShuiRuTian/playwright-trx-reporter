@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import type { FullConfig, FullResult, Reporter, Suite } from '@playwright/test/reporter';
+import type {
+  FullConfig, FullResult, Reporter, Suite,
+} from '@playwright/test/reporter';
 import path from 'path';
 import { promises as fsPromises } from 'fs';
 import { serialize2Xml } from './serialization';
@@ -8,7 +10,7 @@ import { MultiTrxsBuilder, SingleTrxBuilder } from './trxWriter';
 
 interface OutputFilesInfo {
   folder: string,
-  prefirx: string,
+  prefix: string,
 }
 
 export interface TrxReporterOptions {
@@ -21,17 +23,17 @@ export interface TrxReporterOptions {
   outputFile?: string | OutputFilesInfo;
   /**
    * Set owner for each test case from annotation.
-   * 
+   *
    * Use the last value if it appears multi times.
-   * 
+   *
    * @default "owner"
    */
   ownerAnnotation?: string;
   /**
    * Set priority for each test case from annotation.
-   * 
+   *
    * Use the last value if it appears multi times.
-   * 
+   *
    * @default "priority"
    */
   priorityAnnotation?: string;
@@ -49,7 +51,6 @@ const logPrefix = 'pw_trx_reporter: ';
 type OutputFileInfo = string | OutputFilesInfo | undefined;
 
 export class TrxReporter implements Reporter {
-
   private config!: FullConfig;
 
   private suite!: Suite;
@@ -123,7 +124,7 @@ export class TrxReporter implements Reporter {
         await fsPromises.mkdir(path.dirname(outputFile), { recursive: true });
         await fsPromises.writeFile(outputFile, reportString);
         if (this.verbose) {
-          console.log(logPrefix + ' writing file to ' + outputFile);
+          console.log(`${logPrefix} writing file to ${outputFile}`);
         }
       } else {
         console.log(reportString);
@@ -134,18 +135,19 @@ export class TrxReporter implements Reporter {
   }
 }
 
-function getFilePath(info: OutputFileInfo, index: number): string | undefined { 
+function getFilePath(info: OutputFileInfo, index: number): string | undefined {
   switch (true) {
     // single file output
     case typeof info === 'string':
       return info as string;
     // multi file output
-    case typeof info === 'object': { 
-      const { folder, prefirx } = info as OutputFilesInfo;
-      return path.resolve(folder, `${prefirx}_${index}.trx`);
+    case typeof info === 'object': {
+      const { folder, prefix } = info as OutputFilesInfo;
+      return path.resolve(folder, `${prefix}_${index}.trx`);
     }
     // console output
-    case typeof info === 'undefined':
+    case info === undefined:
+    default:
       return undefined;
   }
 }

@@ -31,7 +31,7 @@ export class ResultSummary {
 
 export class WorkItemIDsType {
   WorkItem?: {
-    $id: string;//IDSimpleType
+    $id: string;// IDSimpleType
   }[];
 }
 
@@ -138,18 +138,18 @@ export class TestResultType {
     this.$testType = props.$testType;
     this.$testId = props.$testId;
     this.$executionId = props.$executionId;
-    //this.$parentExecutionId = props.$parentExecutionId;
+    // this.$parentExecutionId = props.$parentExecutionId;
     this.$testListId = props.$testListId;
     this.$outcome = props.$outcome;
     this.$computerName = props.$computerName;
-    //this.$relativeResultsDirectory = props.$relativeResultsDirectory;
+    // this.$relativeResultsDirectory = props.$relativeResultsDirectory;
     this.$startTime = props.$startTime;
     this.$endTime = props.$endTime;
     this.$duration = props.$duration;
-    //this.$spoolMessage = props.$spoolMessage;
-    //this.$processExitCode = props.$processExitCode;
-    //this.$isAborted = props.$isAborted;
-    //this.$relativeTestOutputDirectory = props.$relativeTestOutputDirectory;
+    // this.$spoolMessage = props.$spoolMessage;
+    // this.$processExitCode = props.$processExitCode;
+    // this.$isAborted = props.$isAborted;
+    // this.$relativeTestOutputDirectory = props.$relativeTestOutputDirectory;
     this.Output = props.Output;
     this.ResultFiles = props.ResultFiles;
   }
@@ -184,7 +184,6 @@ export class TestDefinitionType {
   }
 }
 
-
 export class TestEntryType {
   //    TcmInformation?: TcmInformationType;
 
@@ -218,7 +217,6 @@ export class TestEntriesType {
     this.TestEntry = props.TestEntry;
   }
 }
-
 
 export class TestListType {
   //   RunConfiguration?: LinkType;

@@ -4,7 +4,7 @@ import { escape, stripAnsiEscapes } from './copyFromPlaywrightRepo';
 const ATTRIBUTE_PREFIX = '$';
 // elemnt could be string, in which case it will be transformed to
 // an element with only text content.
-// Vut if it has any attribute, then 
+// Vut if it has any attribute, then
 // text content should be '__text'
 
 const TEXT_PROPERTY = '__text';
@@ -34,28 +34,25 @@ function serializeString2Xml(lines: string[], modelName: string, model: string, 
 
   const rawText = model;
 
-  if (rawText)
-    lines.push(escape(rawText, stripANSIControlSequences, true));
+  if (rawText) { lines.push(escape(rawText, stripANSIControlSequences, true)); }
 
   const endTag = `</${modelName}>`;
   lines.push(endTag);
 }
-
 
 function serialize2XmlElementWithChildren(lines: string[], tagName: string, attributes: string[], elementKeyValuePairs: any[][], rawContent: string, stripANSIControlSequences: boolean) {
   const startTag = `<${tagName}${attributes.length ? ' ' : ''}${attributes.join(' ')}>`;
   lines.push(startTag);
 
   elementKeyValuePairs.forEach(([key, value]) => {
-    if (Array.isArray(value))
-      value.forEach(v =>
-        serialize2Xml(lines, key, v, stripANSIControlSequences));
-    else
+    if (Array.isArray(value)) {
+      value.forEach((v) => serialize2Xml(lines, key, v, stripANSIControlSequences));
+    } else {
       serialize2Xml(lines, key, value, stripANSIControlSequences);
+    }
   });
 
-  if (rawContent)
-    lines.push(escape(rawContent, stripANSIControlSequences, true));
+  if (rawContent) { lines.push(escape(rawContent, stripANSIControlSequences, true)); }
 
   const endTag = `</${tagName}>`;
   lines.push(endTag);
@@ -75,13 +72,13 @@ export function serialize2Xml(lines: string[], modelName: string, model: any, st
   const attributeProperties = properties.filter(isAttribute);
   const elementProperties = properties.filter(isElement);
 
-  const attributeKeyValuePairs = attributeProperties.map(p => {
+  const attributeKeyValuePairs = attributeProperties.map((p) => {
     const key = p.slice(1); // remove '$' prefix
     const value = model[p];
     return [key, value];
   }).filter(([, value]) => !isEmpty(value));
 
-  const elementKeyValuePairs = elementProperties.map(p => {
+  const elementKeyValuePairs = elementProperties.map((p) => {
     const value = model[p];
     return [p, value];
   }).filter(([, value]) => !isEmpty(value));

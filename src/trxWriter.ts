@@ -1,18 +1,21 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import type { Suite, TestCase, TestResult, TestStatus } from '@playwright/test/reporter';
+import type {
+  Suite, TestCase, TestResult, TestStatus,
+} from '@playwright/test/reporter';
 import fs from 'fs';
 import { RESULT_NOT_IN_A_LIST_ID, TestRunBuilder, TestRunBuilderOptions } from './TestRunBuilder';
-import { OutputType, TestOutcome, UnitTestResultType, UNIT_TEST_TYPE } from './trxModel';
+import {
+  OutputType, TestOutcome, UnitTestResultType, UNIT_TEST_TYPE,
+  TestRunType,
+} from './trxModel';
 import { assertNever } from './assert';
-import { TestRunType } from './trxModel';
-import { computerName, convertPwId2Uuid, createUuid } from './utils';
 
-export const NAME_SPLITTER = ' > ';
+import { computerName, convertPwId2Uuid, createUuid } from './utils';
 
 interface TrxsBuilder {
   /**
    * Analytics the root suite of playwright. And generate trx models.
-   * 
+   *
    * @param rootSuite The root suite of playwright
    * @returns the generated trx models
    */
@@ -39,7 +42,7 @@ export interface TrxWriterOptions {
 interface TestRunsBuilder {
   /**
    * Get an existing `TestRunBuilder` or create a new one.
-   * 
+   *
    * We assume that testResultIndex is the same as current retry time.
    */
   getOrCreateTestRunBuilder(testResultIndex: number): TestRunBuilder;
@@ -55,12 +58,11 @@ function mergeAllSuitesToTestRunBuilder(testRunsBuilder: TestRunsBuilder, suite:
 }
 
 function mergeFileOrGroupSuite(testRunsBuilder: TestRunsBuilder, suite: Suite, options: TrxWriterOptions) {
-  if (suite.allTests().length === 0)
-    return;
-  suite.tests.forEach(test => {
+  if (suite.allTests().length === 0) { return; }
+  suite.tests.forEach((test) => {
     mergeTestCase(testRunsBuilder, test, options);
   });
-  suite.suites.forEach(subSuite => {
+  suite.suites.forEach((subSuite) => {
     mergeFileOrGroupSuite(testRunsBuilder, subSuite, options);
   });
 }
@@ -91,7 +93,7 @@ function mergeTestCase(testRunsBuilder: TestRunsBuilder, test: TestCase, options
 
 function buildTrxUnitTestResultByPwTestCase(test: TestCase): UnitTestResultType[] {
   // TODO: assert test.results is sorted by retry index.
-  return test.results.map(result => buildTrxUnitTestResultByPwTestResult(test, result));
+  return test.results.map((result) => buildTrxUnitTestResultByPwTestResult(test, result));
 }
 
 // TODO: copy from playwright implementation, so that it would be easy to migrate
@@ -127,7 +129,7 @@ function bindOutput(unitTestResult: UnitTestResultType, test: TestCase, result: 
   let errorInfoMessage: string | undefined;
   let errorInfoStackTrace: string | undefined;
   if (result.error?.stack) {
-    const stack = result.error.stack;
+    const { stack } = result.error;
     const firstStackLine = stack.indexOf('\n    at ');
     errorInfoMessage = stack.slice(0, firstStackLine);
     errorInfoStackTrace = stack.slice(firstStackLine);
@@ -163,13 +165,13 @@ function bindAttachment(unitTestResult: UnitTestResultType, test: TestCase, resu
 
   if (attachmentPaths.length !== 0) {
     unitTestResult.ResultFiles = {
-      ResultFile: attachmentPaths.map(p => ({ $path: p })),
+      ResultFile: attachmentPaths.map((p) => ({ $path: p })),
     };
   }
 }
 
 function getStringFromStdStream(stdStream: (string | Buffer)[]) {
-  return stdStream.map(i => i.toString()).join();
+  return stdStream.map((i) => i.toString()).join();
 }
 
 function pwOutcome2TrxOutcome(outcome: TestStatus) {
@@ -223,10 +225,9 @@ class SingleTrxWriterTestRunsBuilder implements TestRunsBuilder {
   }
 
   build(): TestRunType[] {
-    return this._builders.map(b => b.build());
+    return this._builders.map((b) => b.build());
   }
 }
-
 
 class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder {
   private _builders: TestRunBuilder[] = [];
@@ -244,7 +245,7 @@ class MultiTrxWriterTestRunsBuilder implements TestRunsBuilder {
   }
 
   build(): TestRunType[] {
-    return this._builders.map(b => b.build());
+    return this._builders.map((b) => b.build());
   }
 }
 
@@ -268,4 +269,4 @@ export class MultiTrxsBuilder implements TrxsBuilder {
     mergeAllSuitesToTestRunBuilder(b, rootSuite, options);
     return b.build();
   }
-} 
+}

@@ -1,7 +1,7 @@
-import type { serialize2Xml } from './serialization';
-import { CountersType, IDSimpleType, ResultsType, ResultSummary, TestDefinitionType, TestEntriesType, TestEntryType, TestListType, TestOutcome, TestRunType, Times, UnitTestResultType, UnitTestType, WorkItemIDsType } from './trxModel';
+import {
+  CountersType, IDSimpleType, ResultsType, ResultSummary, TestDefinitionType, TestEntriesType, TestEntryType, TestListType, TestOutcome, TestRunType, Times, UnitTestResultType, UnitTestType, WorkItemIDsType,
+} from './trxModel';
 import { assert } from './assert';
-import { NAME_SPLITTER } from './trxWriter';
 
 // Magic number
 // Copied from an existing trx file
@@ -9,6 +9,8 @@ export const RESULT_NOT_IN_A_LIST_ID: IDSimpleType = '8c84fa94-04c1-424b-9868-57
 export const ALL_LOADED_RESULTS_ID: IDSimpleType = '19431567-8539-422a-85d7-44ee4e166bda' as IDSimpleType;
 export const resultsNotInAList = new TestListType({ $id: RESULT_NOT_IN_A_LIST_ID, $name: 'Results Not in a List' });
 export const allLoadedResults = new TestListType({ $id: ALL_LOADED_RESULTS_ID, $name: 'All Loaded Results' });
+
+export const NAME_SPLITTER = ' > ';
 
 export interface TestRunBuilderOptions {
   id: IDSimpleType;
@@ -60,7 +62,9 @@ export class TestRunBuilder {
   private _isBuilt = false;
 
   constructor(options: TestRunBuilderOptions) {
-    const { id, name, runUser, endTime, startTime } = options;
+    const {
+      id, name, runUser, endTime, startTime,
+    } = options;
     this._testRun = new TestRunType({ $id: id, $name: name, $runUser: runUser });
     this._Counters = new CountersType();
     this._Results = new ResultsType({ UnitTestResult: [] });
@@ -81,19 +85,21 @@ export class TestRunBuilder {
   // in which condition should we add other test type?
   addTestResult(testResult: UnitTestResultType, options: AddTestResultOptions) {
     const { testDefinitionAdditionalInfo } = options;
-    const { owner, priority, fileLocation, workItemIds, className } = testDefinitionAdditionalInfo;
+    const {
+      owner, priority, fileLocation, workItemIds, className,
+    } = testDefinitionAdditionalInfo;
 
     // add test definition
     const unitTest: UnitTestType = new UnitTestType({
       $id: testResult.$testId,
-      $name:  [className, testResult.$testName].join(NAME_SPLITTER),
+      $name: [className, testResult.$testName].join(NAME_SPLITTER),
       $priority: priority,
       $storage: fileLocation,
       Owners: owner ? {
         Owner: [{ $name: owner }],
       } : undefined,
-      WorkItemIDs: workItemIds ?
-        { WorkItem: workItemIds.map(item => ({ $id: item })) }
+      WorkItemIDs: workItemIds
+        ? { WorkItem: workItemIds.map((item) => ({ $id: item })) }
         : undefined,
       TestMethod: {
         $className: className,
@@ -104,8 +110,7 @@ export class TestRunBuilder {
 
     // One test might be run more than once due to flaky.
     // Only add the definition once.
-    if (this._TestDefinitions?.UnitTest?.every((t => t.$id !== unitTest.$id)))
-      this._TestDefinitions?.UnitTest?.push(unitTest);
+    if (this._TestDefinitions?.UnitTest?.every(((t) => t.$id !== unitTest.$id))) { this._TestDefinitions?.UnitTest?.push(unitTest); }
 
     // add test entry
     const testEntry = new TestEntryType({
@@ -148,8 +153,7 @@ export class TestRunBuilder {
   }
 
   build(): TestRunType {
-    if (this._isBuilt)
-      assert("'TestRunBuilder' should not call `build` twice.");
+    if (this._isBuilt) { assert("'TestRunBuilder' should not call `build` twice."); }
     this._isBuilt = true;
     this._testRun.ResultSummary = createResultSummaryByCounters(this._Counters);
     this._testRun.Results = this._Results;

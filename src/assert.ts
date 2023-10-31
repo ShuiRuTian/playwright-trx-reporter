@@ -12,14 +12,13 @@ export function failInDebug(message?: string): never {
   throw e;
 }
 
-
 export function assert(expression: unknown, message?: string, verboseDebugInfo?: string | (() => string)): asserts expression {
   if (!expression) {
-    message = message ? `False expression: ${message}` : 'False expression.';
+    let finalMessage = message ? `False expression: ${message}` : 'False expression.';
     if (verboseDebugInfo) {
-      message += '\r\nVerbose Debug Information: ' + (typeof verboseDebugInfo === 'string' ? verboseDebugInfo : verboseDebugInfo());
+      finalMessage += `\r\nVerbose Debug Information: ${typeof verboseDebugInfo === 'string' ? verboseDebugInfo : verboseDebugInfo()}`;
     }
-    fail(message);
+    fail(finalMessage);
   }
 }
 

@@ -6,9 +6,10 @@ export function prepareErrorStack(stack: string): {
   location?: Location;
 } {
   const lines = stack.split('\n');
-  let firstStackLine = lines.findIndex(line => line.startsWith('    at '));
-  if (firstStackLine === -1)
+  let firstStackLine = lines.findIndex((line) => line.startsWith('    at '));
+  if (firstStackLine === -1) {
     firstStackLine = lines.length;
+  }
   const message = lines.slice(0, firstStackLine).join('\n');
   const stackLines = lines.slice(firstStackLine);
   // !!!!!!! we did not get the real location for now, it's fine
@@ -26,14 +27,15 @@ export function stripAnsiEscapes(str: string): string {
 }
 
 export function escape(text: string, stripANSIControlSequences: boolean, isCharacterData: boolean): string {
-  if (stripANSIControlSequences)
-    text = stripAnsiEscapes(text);
+  if (stripANSIControlSequences) { text = stripAnsiEscapes(text); }
 
   if (isCharacterData) {
-    text = '<![CDATA[' + text.replace(/]]>/g, ']]&gt;') + ']]>';
+    text = `<![CDATA[${text.replace(/]]>/g, ']]&gt;')}]]>`;
   } else {
     const escapeRe = /[&"'<>]/g;
-    text = text.replace(escapeRe, c => ({ '&': '&amp;', '"': '&quot;', "'": '&apos;', '<': '&lt;', '>': '&gt;' }[c]!));
+    text = text.replace(escapeRe, (c) => ({
+      '&': '&amp;', '"': '&quot;', "'": '&apos;', '<': '&lt;', '>': '&gt;',
+    }[c]!));
   }
 
   text = text.replace(discouragedXMLCharacters, '');
