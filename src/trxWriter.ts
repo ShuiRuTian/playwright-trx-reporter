@@ -3,7 +3,9 @@ import type {
   Suite, TestCase, TestResult, TestStatus,
 } from '@playwright/test/reporter';
 import fs from 'fs';
-import { RESULT_NOT_IN_A_LIST_ID, TestRunBuilder, TestRunBuilderOptions } from './TestRunBuilder';
+import {
+  RESULT_NOT_IN_A_LIST_ID, TestRunBuilder, TestRunBuilderOptions, NAME_SPLITTER,
+} from './TestRunBuilder';
 import {
   OutputType, TestOutcome, UnitTestResultType, UNIT_TEST_TYPE,
   TestRunType,
