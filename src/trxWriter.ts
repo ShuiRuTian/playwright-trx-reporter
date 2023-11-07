@@ -133,8 +133,8 @@ function bindOutput(unitTestResult: UnitTestResultType, test: TestCase, result: 
   if (result.error?.stack) {
     const { stack } = result.error;
     const firstStackLine = stack.indexOf('\n    at ');
-    errorInfoMessage = stack.slice(0, firstStackLine);
-    errorInfoStackTrace = stack.slice(firstStackLine);
+    errorInfoMessage = `${stack.slice(0, firstStackLine)}`;
+    errorInfoStackTrace = `\n${result.error.snippet ?? ''}\n${stack.slice(firstStackLine)}`;
   }
   const stdOutString = getStringFromStdStream(result.stdout);
   const stdErrString = getStringFromStdStream(result.stderr);
@@ -194,7 +194,7 @@ function pwOutcome2TrxOutcome(outcome: TestStatus) {
 }
 
 function getFromAnnotationByType(annotations: TestCase['annotations'], type: string) {
-  for (let index = annotations.length - 1; index >= 0; index--) {
+  for (let index = annotations.length - 1; index >= 0; index -= 1) {
     const annotation = annotations[index];
     if (annotation.type === type) {
       return annotation.description;

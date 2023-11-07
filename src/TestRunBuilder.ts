@@ -149,6 +149,9 @@ export class TestRunBuilder {
         break;
       case TestOutcome.NotExecuted:
         this._Counters.$notExecuted += 1;
+        break;
+      default:
+        break;
     }
   }
 
