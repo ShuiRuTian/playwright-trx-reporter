@@ -42,6 +42,13 @@ export interface TrxReporterOptions {
    * @default false
    */
   verbose?: boolean;
+
+  /**
+   * Determines how to treat playwright test retries. By default they are listed as individual tests any of which could fail.
+   * 
+   * @default false
+   */
+    groupRetriesAsSingleTest?: boolean;
 }
 
 const outputFileEnv = 'PLAYWRIGHT_TRX_OUTPUT_NAME';
@@ -67,12 +74,15 @@ export class TrxReporter implements Reporter {
 
   private priorityAnnotation: string;
 
+  private groupRetriesAsSingleTest = false;
+
   constructor(options: TrxReporterOptions = {}) {
     const outputFilePath = (typeof options.outputFile === 'string' ? options.outputFile : undefined) || process.env[outputFileEnv];
     this.outputFileInfo = outputFilePath ?? options.outputFile;
     this.ownerAnnotation = options.ownerAnnotation ?? 'owner';
     this.priorityAnnotation = options.priorityAnnotation ?? 'priority';
     this.verbose = options.verbose ?? false;
+    this.groupRetriesAsSingleTest = options.groupRetriesAsSingleTest ?? false;
   }
 
   log(str: string) {
@@ -104,6 +114,7 @@ export class TrxReporter implements Reporter {
     const testRuns = finalTrxsBuilder.analytics(this.suite, {
       ownerAnnotation: this.ownerAnnotation,
       priorityAnnotation: this.priorityAnnotation,
+      groupRetriesAsSingleTest: this.groupRetriesAsSingleTest,
       testRunBuilderOptions: {
         id: createUuid(),
         name: `${finalRunUser} ${this.startTimeDate.toISOString()}`,
