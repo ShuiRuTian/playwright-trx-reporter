@@ -183,11 +183,11 @@ function bindOutput(unitTestResult: UnitTestResultType, test: TestCase, result: 
   } : undefined;
   if (stdOutString || stdErrString || errorInfo) {
     unitTestResult.Output = {
-      StdOut: unitTestResult.Output.StdOut + stdOutString,
-      StdErr: unitTestResult.Output.StdErr + stdErrString,
+      StdOut: (unitTestResult.Output?.StdOut ?? '') + stdOutString,
+      StdErr: (unitTestResult.Output?.StdErr ?? '') + stdErrString,
       ErrorInfo: {
-        Message: (unitTestResult.Output.ErrorInfo?.Message ?? '') + (errorInfo?.Message ?? ''),
-        StackTrace: (unitTestResult.Output.ErrorInfo?.StackTrace ?? '') + (errorInfo?.StackTrace ?? ''),
+        Message: (unitTestResult.Output?.ErrorInfo?.Message ?? '') + (errorInfo?.Message ?? ''),
+        StackTrace: (unitTestResult.Output?.ErrorInfo?.StackTrace ?? '') + (errorInfo?.StackTrace ?? ''),
       },
     };
   }
