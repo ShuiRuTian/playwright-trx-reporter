@@ -89,6 +89,8 @@ export class TestRunBuilder {
       owner, priority, fileLocation, workItemIds, className,
     } = testDefinitionAdditionalInfo;
 
+    const executionId = testResult.$executionId;
+
     // add test definition
     const unitTest: UnitTestType = new UnitTestType({
       $id: testResult.$testId,
@@ -98,6 +100,7 @@ export class TestRunBuilder {
       Owners: owner ? {
         Owner: [{ $name: owner }],
       } : undefined,
+      Execution: executionId ? { $id: executionId } : undefined,
       WorkItemIDs: workItemIds
         ? { WorkItem: workItemIds.map((item) => ({ $id: item })) }
         : undefined,
