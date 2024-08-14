@@ -3,35 +3,35 @@ import { X2jOptions, XMLParser } from 'fast-xml-parser';
 import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 
-const FRAGLE_ATTRIBUTES_KEY = '__FRAGLE';
+const FRAGILE_ATTRIBUTES_KEY = '__FRAGILE';
 
 /**
  * Some attribute is always changing.
- * 
+ *
  * Not compare such attributes.
  */
 const fragileAttributeTree = {
   TestRun: {
-    [FRAGLE_ATTRIBUTES_KEY]: ['id', 'name'],
+    [FRAGILE_ATTRIBUTES_KEY]: ['id', 'name'],
     TestDefinitions: {
       UnitTest: {
-        [FRAGLE_ATTRIBUTES_KEY]: ['storage'],
+        [FRAGILE_ATTRIBUTES_KEY]: ['storage'],
         TestMethod: {
-          [FRAGLE_ATTRIBUTES_KEY]: ['codeBase'],
+          [FRAGILE_ATTRIBUTES_KEY]: ['codeBase'],
         },
       },
     },
     TestEntries: {
       TestEntry: {
-        [FRAGLE_ATTRIBUTES_KEY]: ['executionId'],
+        [FRAGILE_ATTRIBUTES_KEY]: ['executionId'],
       },
     },
     Times: {
-      [FRAGLE_ATTRIBUTES_KEY]: ['creation', 'finish'],
+      [FRAGILE_ATTRIBUTES_KEY]: ['creation', 'finish'],
     },
     Results: {
       UnitTestResult: {
-        [FRAGLE_ATTRIBUTES_KEY]: ['computerName', 'executionId', 'startTime', 'endTime', 'duration'],
+        [FRAGILE_ATTRIBUTES_KEY]: ['computerName', 'executionId', 'startTime', 'endTime', 'duration'],
       },
     },
   },
@@ -67,7 +67,7 @@ function compareXmlObject(a: any, b: any, fragileTree: any) {
     const attributeName = entryName.substring(ATTRIBUTE_PREFIX.length); // skip the prefix
 
     if (isAttributeEntry(entryName)) {
-      const isAttributeFragile = fragileTree?.[FRAGLE_ATTRIBUTES_KEY]?.includes(attributeName);
+      const isAttributeFragile = fragileTree?.[FRAGILE_ATTRIBUTES_KEY]?.includes(attributeName);
       // Just skip if the attribute is fragile
       if (!isAttributeFragile) {
         assert(aEntry[1] === bEntry[1], 'non-fragile attribute value of xml object must be same');
