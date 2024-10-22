@@ -36,6 +36,11 @@ export interface TrxWriterOptions {
   priorityAnnotation: string,
 
   /**
+   * How to treat playwright test retries. By default they are listed as individual tests any of which could fail.
+   */
+  groupRetriesAsSingleTest: boolean,
+
+  /**
    * The constructor options of `TestRunBuilder`
    */
   testRunBuilderOptions: TestRunBuilderOptions,
@@ -72,8 +77,8 @@ function mergeFileOrGroupSuite(testRunsBuilder: TestRunsBuilder, suite: Suite, o
 }
 
 function mergeTestCase(testRunsBuilder: TestRunsBuilder, test: TestCase, options: TrxWriterOptions) {
-  const { ownerAnnotation, priorityAnnotation } = options;
-  const trxUnitTestResults = buildTrxUnitTestResultByPwTestCase(test);
+  const { ownerAnnotation, priorityAnnotation, groupRetriesAsSingleTest } = options;
+  const trxUnitTestResults = buildTrxUnitTestResultByPwTestCase(test, groupRetriesAsSingleTest);
 
   // TODO: use `formatTestTitle`?
   // remove root title, which is just empty
@@ -95,9 +100,43 @@ function mergeTestCase(testRunsBuilder: TestRunsBuilder, test: TestCase, options
   });
 }
 
-function buildTrxUnitTestResultByPwTestCase(test: TestCase): UnitTestResultType[] {
-  // TODO: assert test.results is sorted by retry index.
-  return test.results.map((result) => buildTrxUnitTestResultByPwTestResult(test, result));
+function buildTrxUnitTestResultByPwTestCase(test: TestCase, groupRetriesAsSingleTest: boolean = false): UnitTestResultType[] {
+  
+  if (groupRetriesAsSingleTest) {
+    // Tests are grouped togeter with any retries. The last retry will have the final result (i.e. if every retry passed, the test will be marked as passed).
+    const overallResult = pwTestCaseOutcome2TrxOutcome(test.outcome());
+
+    const firstResult = test.results[0];
+    const lastResult = test.results[test.results.length - 1];
+
+    const endTime = new Date(lastResult.startTime);
+    endTime.setMilliseconds(lastResult.startTime.getMilliseconds() + lastResult.duration);
+
+    const totalDuration = lastResult.startTime.getMilliseconds() + lastResult.duration - firstResult.startTime.getMilliseconds();
+    const unitTestResult = new UnitTestResultType({
+      $computerName: computerName,
+      $testId: convertPwId2Uuid(test.id),
+      $testListId: RESULT_NOT_IN_A_LIST_ID,
+      $testName: test.titlePath().slice(1).join(NAME_SPLITTER),
+      $testType: UNIT_TEST_TYPE,
+      $duration: formatMs2TimeSpanString(totalDuration),
+      $startTime: firstResult.startTime.toISOString(),
+      $endTime: endTime.toISOString(),
+      $executionId: createUuid(),
+      $outcome: overallResult,
+    });
+
+    for (const result of test.results) {
+      bindAttachment(unitTestResult, test, result);
+      bindOutput(unitTestResult, test, result);
+    }
+  
+    return [unitTestResult];
+    
+  } else {
+    // TODO: assert test.results is sorted by retry index.
+    return test.results.map((result) => buildTrxUnitTestResultByPwTestResult(test, result));
+  }
 }
 
 // TODO: copy from playwright implementation, so that it would be easy to migrate
@@ -146,9 +185,12 @@ function bindOutput(unitTestResult: UnitTestResultType, test: TestCase, result: 
   } : undefined;
   if (stdOutString || stdErrString || errorInfo) {
     unitTestResult.Output = {
-      StdOut: stdOutString,
-      StdErr: stdErrString,
-      ErrorInfo: errorInfo,
+      StdOut: (unitTestResult.Output?.StdOut ?? '') + stdOutString,
+      StdErr: (unitTestResult.Output?.StdErr ?? '') + stdErrString,
+      ErrorInfo: {
+        Message: (unitTestResult.Output?.ErrorInfo?.Message ?? '') + (errorInfo?.Message ?? ''),
+        StackTrace: (unitTestResult.Output?.ErrorInfo?.StackTrace ?? '') + (errorInfo?.StackTrace ?? ''),
+      },
     };
   }
 }
@@ -168,8 +210,9 @@ function bindAttachment(unitTestResult: UnitTestResultType, test: TestCase, resu
   }
 
   if (attachmentPaths.length !== 0) {
+    const oldAttachments = unitTestResult.ResultFiles?.ResultFile ?? [];
     unitTestResult.ResultFiles = {
-      ResultFile: attachmentPaths.map((p) => ({ $path: p })),
+      ResultFile: oldAttachments.concat(attachmentPaths.map((p) => ({ $path: p })))
     };
   }
 }
@@ -188,6 +231,21 @@ function pwOutcome2TrxOutcome(outcome: TestStatus) {
       return TestOutcome.Passed;
     case 'timedOut':
       return TestOutcome.Timeout;
+    case 'skipped':
+      return TestOutcome.NotExecuted;
+    default:
+      assertNever(outcome);
+  }
+}
+
+function pwTestCaseOutcome2TrxOutcome(outcome: ReturnType<TestCase['outcome']>) {
+  switch (outcome) {
+    case 'unexpected':
+      return TestOutcome.Failed;
+    case 'expected':
+      return TestOutcome.Passed;
+    case 'flaky': // count flaky tests as eventually passing
+      return TestOutcome.Passed
     case 'skipped':
       return TestOutcome.NotExecuted;
     default:
