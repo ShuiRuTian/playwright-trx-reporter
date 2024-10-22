@@ -17,6 +17,10 @@ class TrxHelper {
   }
 }
 
+test.skip('skipped test case', async () => {
+  expect(1).toBe(1)
+});
+
 test('trx-owner', async ({ page }) => {
   TrxHelper.owner('Song Gao');
 });
@@ -63,7 +67,7 @@ test('trx-out-of-time', async ({ page }, testInfo) => {
   }
 });
 
-const testWithAoto = test.extend<{ trx_auto_1: void }>({
+const testWithAuto = test.extend<{ trx_auto_1: void }>({
   trx_auto_1: [async ({ }, use, testInfo) => {
     TrxHelper.owner('Someone');
     TrxHelper.priority(5);
@@ -71,7 +75,7 @@ const testWithAoto = test.extend<{ trx_auto_1: void }>({
   }, { auto: true }],
 });
 
-testWithAoto('auto', async () => {
+testWithAuto('auto', async () => {
   // Not need to do anything
   // If you want to change the owner, just 
   // trx.owner('someone else')

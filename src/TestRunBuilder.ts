@@ -34,7 +34,7 @@ export interface AddTestResultOptions {
 }
 
 function createResultSummaryByCounters(counter: CountersType) {
-  const $outcome = counter.$total === counter.$passed ? 'Passed' : 'Failed';
+  const $outcome = counter.$executed === counter.$passed ? 'Completed' : 'Failed';
   return new ResultSummary({
     $outcome,
     Counters: counter,

@@ -61,9 +61,11 @@ function mergeAllSuitesToTestRunBuilder(testRunsBuilder: TestRunsBuilder, suite:
 
 function mergeFileOrGroupSuite(testRunsBuilder: TestRunsBuilder, suite: Suite, options: TrxWriterOptions) {
   if (suite.allTests().length === 0) { return; }
+
   suite.tests.forEach((test) => {
     mergeTestCase(testRunsBuilder, test, options);
   });
+
   suite.suites.forEach((subSuite) => {
     mergeFileOrGroupSuite(testRunsBuilder, subSuite, options);
   });
@@ -202,7 +204,7 @@ function getFromAnnotationByType(annotations: TestCase['annotations'], type: str
   }
 }
 
-function createDummyTestRunBuilderOption(options:TestRunBuilderOptions): TestRunBuilderOptions {
+function createDummyTestRunBuilderOption(options: TestRunBuilderOptions): TestRunBuilderOptions {
   return {
     ...options,
     id: createUuid(),
